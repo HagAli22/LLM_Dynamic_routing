@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react';
 import { apiKeysAPI, statsAPI } from '../services/api';
-import { Key, Plus, Trash2, Eye, EyeOff, BarChart2 } from 'lucide-react';
+import { Key, Plus, Trash2, Eye, EyeOff, BarChart2, TrendingUp, Award } from 'lucide-react';
+import axios from 'axios';
 
 export default function SettingsPage({ user }) {
   const [apiKeys, setApiKeys] = useState([]);
   const [stats, setStats] = useState(null);
   const [showAddModal, setShowAddModal] = useState(false);
   const [newKey, setNewKey] = useState({ provider: '', api_key: '', key_name: '', model_name: '', model_path: '', tier: 'tier1' });
+  const [modelRankings, setModelRankings] = useState({ tier1: [], tier2: [], tier3: [] });
+  const [loadingRankings, setLoadingRankings] = useState(true);
 
   useEffect(() => {
     loadData();
+    loadModelRankings();
   }, []);
 
   const loadData = async () => {
@@ -22,6 +26,28 @@ export default function SettingsPage({ user }) {
       setStats(statsRes.data);
     } catch (error) {
       console.error('Failed to load data:', error);
+    }
+  };
+
+  const loadModelRankings = async () => {
+    setLoadingRankings(true);
+    try {
+      // جلب الموديلات المرتبة لكل tier
+      const [tier1Res, tier2Res, tier3Res] = await Promise.all([
+        axios.get('/api/rating/leaderboard/tier1?limit=20'),
+        axios.get('/api/rating/leaderboard/tier2?limit=20'),
+        axios.get('/api/rating/leaderboard/tier3?limit=20')
+      ]);
+      
+      setModelRankings({
+        tier1: tier1Res.data,
+        tier2: tier2Res.data,
+        tier3: tier3Res.data
+      });
+    } catch (error) {
+      console.error('Failed to load model rankings:', error);
+    } finally {
+      setLoadingRankings(false);
     }
   };
 
@@ -151,6 +177,205 @@ export default function SettingsPage({ user }) {
           </div>
         </div>
       )}
+
+      {/* Model Rankings */}
+      <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center">
+            <Award className="h-6 w-6 ml-2 text-yellow-600" />
+            ترتيب الموديلات الحالي
+          </h2>
+          <button
+            onClick={loadModelRankings}
+            className="text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1"
+          >
+            <TrendingUp className="h-4 w-4" />
+            تحديث
+          </button>
+        </div>
+
+        {loadingRankings ? (
+          <div className="text-center py-8 text-gray-500">جاري التحميل...</div>
+        ) : (
+          <div className="space-y-6">
+            {/* Tier 1 */}
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
+                <span className="w-2 h-2 bg-green-500 rounded-full ml-2"></span>
+                Tier 1 - Simple (أسرع وأرخص)
+              </h3>
+              <div className="space-y-2">
+                {modelRankings.tier1.length > 0 ? (
+                  modelRankings.tier1.map((model, index) => (
+                    <div
+                      key={model.model_identifier}
+                      className={`flex items-center justify-between p-3 rounded-lg border ${
+                        index === 0 ? 'bg-yellow-50 dark:bg-yellow-900/10 border-yellow-300' :
+                        index === 1 ? 'bg-gray-50 dark:bg-gray-700/30 border-gray-300' :
+                        index === 2 ? 'bg-orange-50 dark:bg-orange-900/10 border-orange-300' :
+                        'bg-white dark:bg-gray-700/20 border-gray-200'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3 flex-1">
+                        <span className={`text-lg font-bold ${
+                          index === 0 ? 'text-yellow-600' :
+                          index === 1 ? 'text-gray-500' :
+                          index === 2 ? 'text-orange-600' :
+                          'text-gray-400'
+                        }`}>
+                          #{model.rank}
+                        </span>
+                        <div className="flex-1">
+                          <p className="font-medium text-gray-900 dark:text-white text-sm">
+                            {model.model_name}
+                          </p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                            {model.model_identifier}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <div className="text-right">
+                          <div className="flex items-center gap-1">
+                            <TrendingUp className="h-4 w-4 text-blue-600" />
+                            <span className="text-lg font-bold text-blue-600">
+                              {model.score}
+                            </span>
+                          </div>
+                          <p className="text-xs text-gray-500">نقطة</p>
+                        </div>
+                        <div className="text-xs text-gray-500 flex gap-2">
+                          <span>👍 {model.total_likes}</span>
+                          <span>👎 {model.total_dislikes}</span>
+                          <span>⭐ {model.total_stars}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-center text-gray-500 py-4">لا توجد موديلات</p>
+                )}
+              </div>
+            </div>
+
+            {/* Tier 2 */}
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
+                <span className="w-2 h-2 bg-yellow-500 rounded-full ml-2"></span>
+                Tier 2 - Medium (متوازن)
+              </h3>
+              <div className="space-y-2">
+                {modelRankings.tier2.length > 0 ? (
+                  modelRankings.tier2.map((model, index) => (
+                    <div
+                      key={model.model_identifier}
+                      className={`flex items-center justify-between p-3 rounded-lg border ${
+                        index === 0 ? 'bg-yellow-50 dark:bg-yellow-900/10 border-yellow-300' :
+                        'bg-white dark:bg-gray-700/20 border-gray-200'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3 flex-1">
+                        <span className={`text-lg font-bold ${
+                          index === 0 ? 'text-yellow-600' : 'text-gray-400'
+                        }`}>
+                          #{model.rank}
+                        </span>
+                        <div className="flex-1">
+                          <p className="font-medium text-gray-900 dark:text-white text-sm">
+                            {model.model_name}
+                          </p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                            {model.model_identifier}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <div className="text-right">
+                          <div className="flex items-center gap-1">
+                            <TrendingUp className="h-4 w-4 text-blue-600" />
+                            <span className="text-lg font-bold text-blue-600">
+                              {model.score}
+                            </span>
+                          </div>
+                          <p className="text-xs text-gray-500">نقطة</p>
+                        </div>
+                        <div className="text-xs text-gray-500 flex gap-2">
+                          <span>👍 {model.total_likes}</span>
+                          <span>👎 {model.total_dislikes}</span>
+                          <span>⭐ {model.total_stars}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-center text-gray-500 py-4">لا توجد موديلات</p>
+                )}
+              </div>
+            </div>
+
+            {/* Tier 3 */}
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
+                <span className="w-2 h-2 bg-red-500 rounded-full ml-2"></span>
+                Tier 3 - Advanced (أقوى وأغلى)
+              </h3>
+              <div className="space-y-2">
+                {modelRankings.tier3.length > 0 ? (
+                  modelRankings.tier3.map((model, index) => (
+                    <div
+                      key={model.model_identifier}
+                      className={`flex items-center justify-between p-3 rounded-lg border ${
+                        index === 0 ? 'bg-yellow-50 dark:bg-yellow-900/10 border-yellow-300' :
+                        'bg-white dark:bg-gray-700/20 border-gray-200'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3 flex-1">
+                        <span className={`text-lg font-bold ${
+                          index === 0 ? 'text-yellow-600' : 'text-gray-400'
+                        }`}>
+                          #{model.rank}
+                        </span>
+                        <div className="flex-1">
+                          <p className="font-medium text-gray-900 dark:text-white text-sm">
+                            {model.model_name}
+                          </p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                            {model.model_identifier}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <div className="text-right">
+                          <div className="flex items-center gap-1">
+                            <TrendingUp className="h-4 w-4 text-blue-600" />
+                            <span className="text-lg font-bold text-blue-600">
+                              {model.score}
+                            </span>
+                          </div>
+                          <p className="text-xs text-gray-500">نقطة</p>
+                        </div>
+                        <div className="text-xs text-gray-500 flex gap-2">
+                          <span>👍 {model.total_likes}</span>
+                          <span>👎 {model.total_dislikes}</span>
+                          <span>⭐ {model.total_stars}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-center text-gray-500 py-4">لا توجد موديلات</p>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+          <p className="text-sm text-gray-700 dark:text-gray-300">
+            💡 <strong>ملاحظة:</strong> الموديلات مرتبة حسب نقاط التقييم. الموديل الأول في كل tier يتم تجربته أولاً.
+          </p>
+        </div>
+      </div>
 
       {/* Add Key Modal */}
       {showAddModal && (

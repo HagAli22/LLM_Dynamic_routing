@@ -48,6 +48,7 @@ class Router:
         cache,
         classifier,
         llm_client=None,
+        db_session=None,  # إضافة database session للتقييمات
         max_retries: int = MAX_RETRIES_PER_MODEL,
     ):
         self.models_config = models_config
@@ -55,7 +56,11 @@ class Router:
         self.classifier = classifier
         self.llm_client = llm_client
         self.max_retries = max_retries
+        self.db_session = db_session
         self.workflow = self._create_workflow()
+        
+        # تحميل الترتيب الديناميكي للموديلات
+        self._load_ranked_models()
 
 
     def store_in_cache(self, state: RouterState) -> RouterState:
@@ -330,3 +335,55 @@ class Router:
             self.models_config = original_models_config
         
         return result
+    
+    def _load_ranked_models(self):
+        """تحميل الموديلات مرتبة حسب النقاط من قاعدة البيانات"""
+        if not self.db_session:
+            return
+        
+        try:
+            from model_rating_system import ModelRatingManager
+            rating_manager = ModelRatingManager(self.db_session)
+            
+            # الحصول على الموديلات المرتبة لكل tier
+            ranked_models = rating_manager.get_all_ranked_models()
+            
+            # تحديث models_config بالترتيب الجديد
+            for tier, model_list in ranked_models.items():
+                if tier in self.models_config and model_list:
+                    # استبدال القائمة القديمة بالمرتبة
+                    self.models_config[tier] = model_list
+                    logger.info(f"✅ Loaded {len(model_list)} ranked models for {tier}")
+            
+            # تحديث LLMClient بالترتيب الجديد
+            if hasattr(self.llm_client, 'update_models_config'):
+                # تحويل model identifiers إلى format المطلوب للـ LLMClient
+                # LLMClient يحتاج list of tuples [name, identifier]
+                from config import MODELS_CONFIG
+                updated_config = {}
+                for tier, ranked_ids in ranked_models.items():
+                    # البحث عن الموديلات في MODELS_CONFIG الأصلي وترتيبها
+                    tier_models = []
+                    for model_id in ranked_ids:
+                        # البحث عن الموديل في config الأصلي
+                        for original_model in MODELS_CONFIG.get(tier, []):
+                            if isinstance(original_model, (list, tuple)) and len(original_model) >= 2:
+                                if original_model[1] == model_id:
+                                    tier_models.append(original_model)
+                                    break
+                    
+                    # إذا لم نجد موديلات مرتبة، استخدم الأصلية
+                    if not tier_models:
+                        tier_models = MODELS_CONFIG.get(tier, [])
+                    
+                    updated_config[tier] = tier_models
+                
+                self.llm_client.update_models_config(updated_config)
+                logger.info("✅ Updated LLMClient with ranked models")
+        
+        except Exception as e:
+            logger.warning(f"⚠️  Could not load ranked models: {e}, using default order")
+    
+    def refresh_model_rankings(self):
+        """تحديث ترتيب الموديلات (يمكن استدعاؤه دورياً)"""
+        self._load_ranked_models()

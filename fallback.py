@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 # Load env vars
 load_dotenv()
 
-# Map models to keys
+# Map models to environment variable names
 MODEL_KEY_MAP = {
     "mistralai/mistral-7b-instruct:free": "mistral-7b-instruct",
     "qwen/qwen2.5-vl-32b-instruct:free": "qwen2.5-vl-32b-instruct",
@@ -39,7 +39,13 @@ def calculate_cost(model_name: str, input_tokens: int, output_tokens: int) -> fl
     """Calc cost based on token usage"""
     if model_name not in PRICES:
         return 0.0
-    price = PRICES[model_name]
+    # add try and expcept for price = PRICES[model_name]
+
+    try:
+        price = PRICES[model_name]
+    except KeyError:
+        price =PRICES['deepseek/deepseek-r1-distill-llama-70b:free']
+        
     return (input_tokens * price["input"] + output_tokens * price["output"]) / 1_000_000
 
 
@@ -87,13 +93,23 @@ class FallbackChatGradientAI:
             if model_identifier in self.user_api_keys:
                 continue
             
-            # Try to find a matching environment variable
-            for pattern, env_var in env_key_mappings.items():
-                if pattern in model_identifier:
-                    api_key = os.getenv(env_var)
-                    if api_key:
-                        self.user_api_keys[model_identifier] = api_key
-                        break
+            # Try to find API key from MODEL_KEY_MAP
+            api_key_name = MODEL_KEY_MAP.get(model_identifier)
+            if api_key_name:
+                api_key = os.getenv(api_key_name)
+                if api_key:
+                    self.user_api_keys[model_identifier] = api_key
+                    print(f"✅ Loaded API key for {model_identifier} from {api_key_name}")
+            
+            # Fallback: Try to find a matching environment variable by pattern
+            if model_identifier not in self.user_api_keys:
+                for pattern, env_var in env_key_mappings.items():
+                    if pattern in model_identifier:
+                        api_key = os.getenv(env_var)
+                        if api_key:
+                            self.user_api_keys[model_identifier] = api_key
+                            print(f"✅ Loaded API key for {model_identifier} from {env_var}")
+                            # break
 
     def invoke(self, prompt: str, max_retries: int = 3):
         """
@@ -127,6 +143,7 @@ class FallbackChatGradientAI:
             
             # Check if user has custom API key for this model
             api_key = self.user_api_keys.get(model_identifier, default_api_key)
+            print('api_key', api_key)
             
             if not api_key:
                 print(f"⚠️ Skipping {model_display_name} - no API key")

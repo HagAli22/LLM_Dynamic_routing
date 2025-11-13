@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Send, Loader2, Sparkles, AlertCircle, ThumbsUp, ThumbsDown, Star } from 'lucide-react';
 import { conversationsAPI, promptsAPI, feedbackAPI } from '../services/api';
 import ChatHistorySidebar from '../components/ChatHistorySidebar';
+import ModelRating from '../components/ModelRating';
 
 export default function ChatbotPage({ user }) {
   const [currentConversationId, setCurrentConversationId] = useState(null);
@@ -283,44 +284,18 @@ export default function ChatbotPage({ user }) {
                       </span>
                     </div>
 
-                    {/* Feedback Buttons - Only show if query has an ID */}
-                    {message.metadata.id && (
-                      <div className="flex items-center gap-2 pt-2">
-                        <span className="text-xs text-gray-600 dark:text-gray-300 ml-2">قيّم الإجابة:</span>
-                        {message.metadata.user_rating ? (
-                          <div className="flex items-center gap-2 text-xs bg-green-50 dark:bg-green-900/20 px-3 py-1 rounded-full">
-                            <span className="text-green-700 dark:text-green-300">
-                              {message.metadata.user_rating === 'excellent' && '⭐ ممتاز'}
-                              {message.metadata.user_rating === 'good' && '👍 جيد'}
-                              {message.metadata.user_rating === 'poor' && '👎 سيء'}
-                            </span>
-                            <span className="text-green-600 dark:text-green-400">• تم التقييم</span>
-                          </div>
-                        ) : (
-                          <>
-                            <button
-                              onClick={() => handleFeedback(message.metadata.id, 'excellent', index)}
-                              className="p-1 hover:bg-green-100 dark:hover:bg-green-900/20 rounded transition-all hover:scale-110"
-                              title="ممتاز"
-                            >
-                              <Star className="h-4 w-4 text-yellow-500" fill="currentColor" />
-                            </button>
-                            <button
-                              onClick={() => handleFeedback(message.metadata.id, 'good', index)}
-                              className="p-1 hover:bg-blue-100 dark:hover:bg-blue-900/20 rounded transition-all hover:scale-110"
-                              title="جيد"
-                            >
-                              <ThumbsUp className="h-4 w-4 text-blue-500" />
-                            </button>
-                            <button
-                              onClick={() => handleFeedback(message.metadata.id, 'poor', index)}
-                              className="p-1 hover:bg-red-100 dark:hover:bg-red-900/20 rounded transition-all hover:scale-110"
-                              title="سيء"
-                            >
-                              <ThumbsDown className="h-4 w-4 text-red-500" />
-                            </button>
-                          </>
-                        )}
+                    {/* Model Rating Component */}
+                    {message.metadata.id && message.metadata.used_model && (
+                      <div className="pt-2">
+                        <ModelRating
+                          queryId={message.metadata.id}
+                          modelIdentifier={message.metadata.used_model}
+                          modelName={message.metadata.used_model?.split('/').pop()?.replace(':free', '') || 'Model'}
+                          onRatingSuccess={(data) => {
+                            console.log('Rating submitted:', data);
+                            // يمكن تحديث الرسالة هنا إذا أردت
+                          }}
+                        />
                       </div>
                     )}
                   </div>

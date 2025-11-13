@@ -48,14 +48,23 @@ app.add_middleware(
 
 # Initialize components
 # Disable professional features to avoid blocking
-router_system = DynamicLLMRouter(
-    enable_logging=True,
-    enable_monitoring=False,  # Disable to avoid delays
-    enable_rate_limiting=False,
-    enable_quality_eval=False,
-    enable_ab_testing=False
-)
+# Note: router_system will be created per-request with db_session
 prompt_improver = PromptImprover()
+
+def get_router_system(db: Session = Depends(database.get_db)):
+    """Get router system with database session for model rankings"""
+    return DynamicLLMRouter(
+        enable_logging=True,
+        enable_monitoring=False,
+        enable_rate_limiting=False,
+        enable_quality_eval=False,
+        enable_ab_testing=False,
+        db_session=db
+    )
+
+# Include rating API router
+from rating_api import router as rating_router
+app.include_router(rating_router, prefix="/api")
 
 
 # ==================== AUTHENTICATION ENDPOINTS ====================
@@ -165,7 +174,8 @@ def delete_api_key(
 async def process_query(
     query_request: schemas.QueryRequest,
     current_user: database.User = Depends(auth.get_current_user),
-    db: Session = Depends(database.get_db)
+    db: Session = Depends(database.get_db),
+    router_system: DynamicLLMRouter = Depends(get_router_system)
 ):
     """Process a single query"""
     
@@ -269,7 +279,8 @@ async def process_query(
 async def process_batch_queries(
     batch_request: schemas.BatchQueryRequest,
     current_user: database.User = Depends(auth.get_current_user),
-    db: Session = Depends(database.get_db)
+    db: Session = Depends(database.get_db),
+    router_system: DynamicLLMRouter = Depends(get_router_system)
 ):
     """Process multiple queries in batch"""
     
@@ -427,7 +438,8 @@ def suggest_better_prompt(
 @app.post("/api/prompt/classify", response_model=schemas.ClassificationPreview)
 def classify_prompt(
     request: schemas.PromptSuggestionRequest,
-    current_user: database.User = Depends(auth.get_current_user)
+    current_user: database.User = Depends(auth.get_current_user),
+    router_system: DynamicLLMRouter = Depends(get_router_system)
 ):
     """Preview classification without processing"""
     
@@ -659,7 +671,8 @@ async def send_message(
     conversation_id: int,
     query_request: schemas.QueryRequest,
     current_user: database.User = Depends(auth.get_current_user),
-    db: Session = Depends(database.get_db)
+    db: Session = Depends(database.get_db),
+    router_system: DynamicLLMRouter = Depends(get_router_system)
 ):
     """Send message in a conversation"""
     

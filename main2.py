@@ -122,7 +122,8 @@ class DynamicLLMRouter:
         enable_rate_limiting: bool = True,
         enable_quality_eval: bool = True,
         enable_ab_testing: bool = False,
-        user_tier: str = "free"
+        user_tier: str = "free",
+        db_session = None
     ):
         """
         Initialize the Dynamic LLM Router System
@@ -175,6 +176,9 @@ class DynamicLLMRouter:
         if self.logger:
             self.logger.info("✅ LLM client initialized")
         
+        # Store db_session for model ratings
+        self.db_session = db_session
+        
         # Initialize router with LangGraph
         self.router = Router(
             models_config={
@@ -185,7 +189,8 @@ class DynamicLLMRouter:
             cache=self.cache,
             classifier=self.classifier,
             llm_client=self.llm_client,
-            max_retries=max_retries
+            max_retries=max_retries,
+            db_session=db_session
         )
         if self.logger:
             self.logger.info("✅ LangGraph router initialized")
@@ -282,6 +287,14 @@ class DynamicLLMRouter:
         """
         start_time = time.time()
         query_id = str(uuid.uuid4())
+        
+        # تحديث ترتيب الموديلات قبل كل query
+        if self.db_session:
+            try:
+                self.router.refresh_model_rankings()
+            except Exception as e:
+                if self.logger:
+                    self.logger.warning(f"Failed to refresh model rankings: {e}")
         
         if self.logger:
             self.logger.info(f"📥 Processing query [{query_id}]: {query[:50]}...")

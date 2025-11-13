@@ -54,9 +54,9 @@ def main():
     # Example queries
     queries = [
         "What is the capital of Ghana?",
-        "Explain quantum computing in simple terms.",
-        "Create code for a simple weather application that takes a city name and displays the current temperature by calling a weather API.",
-        "Develop a multi-step plan to reduce carbon emissions in a mid-sized city, considering economic, social, and political factors."
+        #"Explain quantum computing in simple terms.",
+        #"Create code for a simple weather application that takes a city name and displays the current temperature by calling a weather API.",
+        #"Develop a multi-step plan to reduce carbon emissions in a mid-sized city, considering economic, social, and political factors."
     ]
     
     # Process each query

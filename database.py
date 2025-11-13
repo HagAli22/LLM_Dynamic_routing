@@ -205,6 +205,54 @@ class SystemAPIKey(Base):
     last_used = Column(DateTime)
 
 
+class ModelRating(Base):
+    """Model Rating System - نظام تقييم الموديلات"""
+    __tablename__ = "model_ratings"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    model_identifier = Column(String(300), unique=True, nullable=False, index=True)  # e.g., "qwen/qwen-2.5-72b-instruct:free"
+    model_name = Column(String(200))  # Display name
+    tier = Column(String(20), nullable=False)  # tier1, tier2, tier3
+    
+    # Rating scores
+    score = Column(Integer, default=100)  # النقاط الحالية
+    total_likes = Column(Integer, default=0)
+    total_dislikes = Column(Integer, default=0)
+    total_stars = Column(Integer, default=0)
+    total_feedbacks = Column(Integer, default=0)
+    
+    # Usage stats
+    total_uses = Column(Integer, default=0)
+    successful_uses = Column(Integer, default=0)
+    failed_uses = Column(Integer, default=0)
+    
+    # Performance metrics
+    avg_response_time = Column(Float, default=0.0)
+    avg_cost = Column(Float, default=0.0)
+    
+    # Timestamps
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    last_used = Column(DateTime)
+
+
+class ModelFeedback(Base):
+    """Individual feedback on model responses - تقييمات فردية"""
+    __tablename__ = "model_feedbacks"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    query_id = Column(Integer, ForeignKey("query_logs.id"), nullable=False)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    model_identifier = Column(String(300), nullable=False)
+    
+    # Feedback type: 'like', 'dislike', 'star'
+    feedback_type = Column(String(20), nullable=False)
+    points_change = Column(Integer, nullable=False)  # +5, -5, +10
+    
+    comment = Column(Text)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+
 # ==================== DATABASE SETUP ====================
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./llm_router.db")
 
@@ -233,7 +281,48 @@ def init_db():
     migrate_user_api_keys()
     migrate_messages()
     
+    # Initialize model ratings from config
+    initialize_model_ratings()
+    
     print("✅ Database initialized successfully!")
+
+
+def initialize_model_ratings():
+    """Initialize model ratings for all models in config"""
+    from config import MODELS_CONFIG
+    
+    db = SessionLocal()
+    try:
+        for tier, models in MODELS_CONFIG.items():
+            for model in models:
+                if isinstance(model, (list, tuple)) and len(model) >= 2:
+                    model_name = model[0]
+                    model_identifier = model[1]
+                else:
+                    model_name = model
+                    model_identifier = model
+                
+                # Check if model already exists
+                existing = db.query(ModelRating).filter(
+                    ModelRating.model_identifier == model_identifier
+                ).first()
+                
+                if not existing:
+                    new_rating = ModelRating(
+                        model_identifier=model_identifier,
+                        model_name=model_name,
+                        tier=tier,
+                        score=100
+                    )
+                    db.add(new_rating)
+        
+        db.commit()
+        print("✅ Model ratings initialized")
+    except Exception as e:
+        print(f"⚠️  Error initializing model ratings: {e}")
+        db.rollback()
+    finally:
+        db.close()
 
 
 def migrate_user_api_keys():

@@ -245,3 +245,41 @@ class ConversationListItem(BaseModel):
     
     class Config:
         from_attributes = True
+
+
+# ==================== MODEL RATING SCHEMAS ====================
+class ModelFeedbackCreate(BaseModel):
+    query_id: int
+    model_identifier: str
+    feedback_type: str = Field(..., description="like, dislike, or star")
+    comment: Optional[str] = None
+
+
+class ModelFeedbackResponse(BaseModel):
+    success: bool
+    model_identifier: str
+    feedback_type: str
+    points_change: int
+    new_score: int
+    total_feedbacks: int
+
+
+class ModelRatingStats(BaseModel):
+    model_identifier: str
+    model_name: str
+    tier: str
+    score: int
+    total_likes: int
+    total_dislikes: int
+    total_stars: int
+    total_feedbacks: int
+    total_uses: int
+    successful_uses: int
+    failed_uses: int
+    success_rate: float
+    avg_response_time: float
+    avg_cost: float
+    last_used: Optional[datetime]
+    
+    class Config:
+        from_attributes = True

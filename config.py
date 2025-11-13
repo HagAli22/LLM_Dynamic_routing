@@ -44,6 +44,15 @@ class LLMClient:
             for tier, models_list in models_config.items()
         }
     
+    def update_models_config(self, new_models_config: Dict[str, List]):
+        """تحديث ترتيب الموديلات ديناميكياً"""
+        self.models_config = new_models_config
+        # إعادة إنشاء fallback handlers بالترتيب الجديد
+        self.fallback_handlers = {
+            tier: FallbackChatGradientAI(models=models_list)
+            for tier, models_list in new_models_config.items()
+        }
+    
     def call(self, model: str, messages: List[Dict[str, str]], tier: str):
         """
         Call the LLM with the given messages and force correct tier fallback.
