@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار الاتصال</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            direction: rtl;
+        }
+        .test-box {
+            border: 2px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success { border-color: green; background: #d4edda; }
+        .error { border-color: red; background: #f8d7da; }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 اختبار الاتصال - LLM Router</h1>
+    
+    <div class="test-box">
+        <h2>1️⃣ اختبار Frontend</h2>
+        <p id="frontend-status">✅ Frontend يعمل بنجاح</p>
+    </div>
+
+    <div class="test-box" id="backend-box">
+        <h2>2️⃣ اختبار Backend</h2>
+        <button onclick="testBackend()">اختبر الاتصال بـ Backend</button>
+        <p id="backend-status">انقر الزر للاختبار</p>
+    </div>
+
+    <div class="test-box">
+        <h2>3️⃣ اختبار localStorage</h2>
+        <button onclick="clearStorage()">امسح localStorage</button>
+        <button onclick="checkStorage()">تحقق من localStorage</button>
+        <p id="storage-status"></p>
+    </div>
+
+    <div class="test-box">
+        <h2>4️⃣ افتح التطبيق</h2>
+        <a href="http://localhost:3000" target="_blank">
+            <button style="background: #007bff; color: white; border: none;">افتح التطبيق</button>
+        </a>
+    </div>
+
+    <script>
+        async function testBackend() {
+            const statusEl = document.getElementById('backend-status');
+            const boxEl = document.getElementById('backend-box');
+            
+            statusEl.textContent = '⏳ جاري الاختبار...';
+            boxEl.className = 'test-box';
+            
+            try {
+                const response = await fetch('http://localhost:8000/api/health');
+                const data = await response.json();
+                
+                if (response.ok) {
+                    statusEl.textContent = '✅ Backend يعمل بنجاح! النسخة: ' + data.version;
+                    boxEl.classList.add('success');
+                } else {
+                    statusEl.textContent = '❌ Backend يستجيب لكن هناك خطأ: ' + response.status;
+                    boxEl.classList.add('error');
+                }
+            } catch (error) {
+                statusEl.textContent = '❌ لا يمكن الاتصال بـ Backend: ' + error.message;
+                statusEl.innerHTML += '<br>تأكد من أن Backend يعمل على http://localhost:8000';
+                boxEl.classList.add('error');
+            }
+        }
+
+        function clearStorage() {
+            localStorage.clear();
+            document.getElementById('storage-status').textContent = '✅ تم مسح localStorage';
+            setTimeout(() => {
+                document.getElementById('storage-status').textContent = '';
+            }, 3000);
+        }
+
+        function checkStorage() {
+            const token = localStorage.getItem('token');
+            const user = localStorage.getItem('user');
+            const statusEl = document.getElementById('storage-status');
+            
+            if (token || user) {
+                statusEl.textContent = `⚠️ يوجد بيانات محفوظة: Token: ${token ? 'موجود' : 'غير موجود'}, User: ${user ? 'موجود' : 'غير موجود'}`;
+            } else {
+                statusEl.textContent = '✅ localStorage فارغ';
+            }
+        }
+
+        // Auto-test on load
+        window.onload = () => {
+            testBackend();
+            checkStorage();
+        };
+    </script>
+</body>
+</html>

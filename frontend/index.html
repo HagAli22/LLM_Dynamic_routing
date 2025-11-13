@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic LLM Router - نظام توجيه LLM الذكي</title>
+    <style>
+      /* Prevent FOUC (Flash of Unstyled Content) */
+      #root:empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      #root:empty::after {
+        content: "⚡ جاري تحميل التطبيق...";
+        font-size: 24px;
+        color: white;
+        font-weight: bold;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+      /* Debug info */
+      body {
+        margin: 0;
+        font-family: 'Cairo', 'Arial', sans-serif;
+      }
+    </style>
+    <script>
+      // Debug: Log page load
+      console.log('📄 index.html loaded');
+      console.log('🌐 Location:', window.location.href);
+      
+      // Add error listener
+      window.addEventListener('error', function(e) {
+        console.error('🚨 Global error:', e.error);
+      });
+      
+      // Log when DOM is ready
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('✅ DOM Content Loaded');
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

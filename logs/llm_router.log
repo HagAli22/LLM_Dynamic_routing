@@ -1,0 +1,985 @@
+2025-10-21 16:22:37 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 16:22:37 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 16:22:42 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 16:22:42 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 16:22:42 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 16:22:42 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 16:22:42 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 16:24:59 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 16:24:59 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 16:25:03 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 16:25:03 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 16:25:03 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 16:25:03 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 16:25:03 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 16:26:37 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 16:26:37 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 16:26:41 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 16:26:41 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 16:26:41 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 16:26:41 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 16:26:41 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 16:29:59 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 16:29:59 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 16:30:03 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 16:30:03 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 16:30:03 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 16:30:03 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 16:30:03 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 16:31:55 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 16:31:55 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 16:31:58 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 16:31:58 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 16:31:58 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 16:31:58 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 16:31:58 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 16:41:26 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 16:41:26 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 16:41:29 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 16:41:29 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 16:41:29 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 16:41:29 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 16:41:29 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 16:43:11 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 16:43:11 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 16:43:14 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 16:43:14 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 16:43:14 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 16:43:14 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 16:43:14 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 17:14:17 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 17:14:17 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 17:14:21 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 17:14:21 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 17:14:21 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 17:14:21 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 17:14:21 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 17:37:47 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 17:37:47 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 17:37:53 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 17:37:53 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 17:37:53 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 17:37:53 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 17:37:53 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 17:38:16 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 17:38:16 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 17:38:20 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 17:38:20 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 17:38:20 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 17:38:20 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 17:38:20 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 17:39:12 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 17:39:12 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 17:39:15 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 17:39:15 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 17:39:15 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 17:39:15 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 17:39:15 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 17:39:33 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 17:39:33 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 17:39:36 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 17:39:36 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 17:39:36 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 17:39:36 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 17:39:36 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 17:40:21 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 17:40:21 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 17:40:25 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 17:40:25 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 17:40:25 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 17:40:25 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 17:40:25 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 17:40:44 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 17:40:44 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 17:40:47 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 17:40:47 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 17:40:47 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 17:40:47 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 17:40:47 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 17:40:48 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 17:40:48 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 17:40:51 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 17:40:51 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 17:40:51 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 17:40:51 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 17:40:51 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 17:41:29 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 17:41:29 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 17:41:32 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 17:41:32 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 17:41:32 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 17:41:32 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 17:41:32 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 17:48:14 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 17:48:14 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 17:48:17 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 17:48:17 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 17:48:17 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 17:48:17 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 17:48:17 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 17:54:12 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 17:54:12 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 17:54:15 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 17:54:15 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 17:54:15 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 17:54:15 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 17:54:15 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 17:58:34 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 17:58:34 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 17:58:37 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 17:58:37 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 17:58:37 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 17:58:37 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 17:58:37 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 17:58:56 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 17:58:56 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 17:58:56 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 17:58:56 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 17:59:01 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 17:59:01 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 17:59:01 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 17:59:01 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 17:59:01 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 17:59:01 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 17:59:01 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 17:59:01 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 17:59:01 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 17:59:01 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:00:16 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:00:16 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:00:19 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:00:19 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:00:19 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:00:19 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:00:19 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:01:49 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:01:49 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:01:53 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:01:53 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:01:53 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:01:53 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:01:53 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:02:20 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:02:20 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:02:24 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:02:24 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:02:24 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:02:24 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:02:24 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:02:40 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:02:40 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:02:43 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:02:43 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:02:43 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:02:43 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:02:43 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:04:18 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:04:18 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:04:21 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:04:21 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:04:21 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:04:21 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:04:21 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:04:41 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:04:41 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:04:44 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:04:44 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:04:44 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:04:44 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:04:44 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:05:07 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:05:07 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:05:10 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:05:10 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:05:10 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:05:11 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:05:11 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:06:39 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:06:39 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:06:42 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:06:42 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:06:42 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:06:42 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:06:42 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:10:39 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:10:39 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:10:42 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:10:42 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:10:42 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:10:42 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:10:42 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:11:23 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:11:23 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:11:27 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:11:27 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:11:27 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:11:27 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:11:27 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:12:05 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:12:05 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:12:09 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:12:09 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:12:09 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:12:09 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:12:09 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:15:14 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:15:14 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:15:17 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:15:17 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:15:17 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:15:17 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:15:17 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:16:14 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:16:14 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:16:17 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:16:17 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:16:17 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:16:17 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:16:17 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:17:46 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:17:46 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:17:49 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:17:49 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:17:49 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:17:49 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:17:49 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:19:27 | llm_router | [32mINFO[0m | 📥 Processing query: who messi ?...
+2025-10-21 18:19:27 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:19:56 | llm_router | [32mINFO[0m | 📥 Processing query: Why is [concept] important?...
+2025-10-21 18:19:56 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:20:08 | llm_router | [32mINFO[0m | 📥 Processing query: who messi ?...
+2025-10-21 18:20:08 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:20:36 | llm_router | [32mINFO[0m | 📥 Processing query: bgvfc...
+2025-10-21 18:20:36 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:20:36 | llm_router | [32mINFO[0m | 📥 Processing query: vcvfc...
+2025-10-21 18:20:36 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:21:29 | llm_router | [32mINFO[0m | 📥 Processing query: Explain who messi in detail...
+2025-10-21 18:21:29 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:22:33 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:22:33 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:22:36 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:22:36 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:22:36 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:22:36 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:22:36 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:23:21 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:23:21 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:23:24 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:23:24 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:23:24 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:23:24 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:23:24 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:23:24 | llm_router | [32mINFO[0m | 📥 Processing query: who ...
+2025-10-21 18:23:24 | llm_router | [32mINFO[0m | 📥 Processing query: who ...
+2025-10-21 18:23:24 | llm_router | [32mINFO[0m | 📥 Processing query: who ...
+2025-10-21 18:23:24 | llm_router | [32mINFO[0m | 📥 Processing query: who ...
+2025-10-21 18:23:24 | llm_router | [32mINFO[0m | 📥 Processing query: who ...
+2025-10-21 18:23:25 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:23:25 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:23:25 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:23:25 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:23:25 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:24:21 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:24:21 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:24:25 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:24:25 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:24:25 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:24:25 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:24:25 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:24:25 | llm_router | [32mINFO[0m | 📥 Processing query: What are the main concepts of who ?...
+2025-10-21 18:24:25 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:25:01 | llm_router | [32mINFO[0m | 📥 Processing query: How do I use bf effectively?...
+2025-10-21 18:25:01 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:27:19 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:27:19 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:27:22 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:27:22 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:27:22 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:27:22 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:27:22 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:28:10 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:28:10 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:28:13 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:28:13 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:28:13 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:28:13 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:28:13 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:28:57 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:28:57 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:29:00 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:29:00 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:29:00 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:29:00 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:29:00 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:29:01 | llm_router | [32mINFO[0m | 📥 Processing query: who messi ?...
+2025-10-21 18:29:01 | llm_router | [32mINFO[0m | 📥 Processing query: who messi ?...
+2025-10-21 18:29:01 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 50 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:29:01 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 50 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:29:03 | llm_router | [32mINFO[0m | 📥 Processing query: What is the capital of France?...
+2025-10-21 18:29:04 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 50 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:30:45 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:30:45 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:30:48 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:30:48 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:30:48 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:30:48 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:30:48 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:30:49 | llm_router | [32mINFO[0m | 📥 Processing query: Who mo salah ?...
+2025-10-21 18:31:21 | llm_router | [32mINFO[0m | 📥 Processing query: What is the capital of France?...
+2025-10-21 18:34:41 | llm_router | [32mINFO[0m | 📥 Processing query: explain code sql ....
+2025-10-21 18:36:16 | llm_router | [32mINFO[0m | 📥 Processing query: What is the capital of France?...
+2025-10-21 18:49:15 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 50 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:49:54 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 50 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:52:55 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 50 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:53:58 | llm_router | [31mERROR[0m | ❌ Query processing failed: Recursion limit of 50 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+2025-10-21 18:54:44 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:54:44 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:54:47 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:54:47 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:54:47 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:54:47 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:54:47 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:56:25 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 18:56:25 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 18:56:28 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 18:56:28 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 18:56:28 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 18:56:28 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 18:56:28 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 18:57:01 | llm_router | [32mINFO[0m | 📥 Processing query: What is the capital of France?...
+2025-10-21 18:57:03 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 2.63s | Cache: MISS | Tier: tier1
+2025-10-21 18:57:39 | llm_router | [32mINFO[0m | 📥 Processing query: Who messi ?...
+2025-10-21 18:57:48 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 8.98s | Cache: MISS | Tier: tier1
+2025-10-21 18:58:22 | llm_router | [32mINFO[0m | 📥 Processing query: ايه اخر سؤال انا سئلته ؟...
+2025-10-21 18:58:26 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 3.58s | Cache: MISS | Tier: tier3
+2025-10-21 18:59:09 | llm_router | [32mINFO[0m | 📥 Processing query: فاكر اخر كام سؤال ؟...
+2025-10-21 18:59:09 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.02s | Cache: HIT | Tier: None
+2025-10-21 18:59:56 | llm_router | [32mINFO[0m | 📥 Processing query: remember last question?...
+2025-10-21 18:59:59 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 3.11s | Cache: MISS | Tier: tier1
+2025-10-21 19:00:28 | llm_router | [32mINFO[0m | 📥 Processing query: who mo salah ?...
+2025-10-21 19:00:35 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 7.54s | Cache: MISS | Tier: tier1
+2025-10-21 20:20:01 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 20:20:01 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 20:20:04 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 20:20:04 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 20:20:04 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 20:20:04 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 20:20:04 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 20:21:39 | llm_router | [32mINFO[0m | 📥 Processing query: what is meaning for chatbot ?...
+2025-10-21 20:21:44 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 5.02s | Cache: MISS | Tier: tier1
+2025-10-21 20:23:08 | llm_router | [32mINFO[0m | 📥 Processing query: creat html website for dynamic roting....
+2025-10-21 20:23:44 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 35.49s | Cache: MISS | Tier: tier3
+2025-10-21 20:25:47 | llm_router | [32mINFO[0m | 📥 Processing query: combine between different llm's ?...
+2025-10-21 20:26:09 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 22.86s | Cache: MISS | Tier: tier1
+2025-10-21 20:35:05 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 20:35:05 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 20:35:07 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 20:35:07 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 20:35:07 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 20:35:07 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 20:35:07 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 20:35:07 | llm_router | [32mINFO[0m | 📥 Processing query: What is the capital of France?...
+2025-10-21 20:35:12 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 4.35s | Cache: MISS | Tier: tier1
+2025-10-21 20:35:12 | llm_router | [32mINFO[0m | 📥 Processing query: What is Python?...
+2025-10-21 20:35:21 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 9.16s | Cache: MISS | Tier: tier1
+2025-10-21 20:35:21 | llm_router | [32mINFO[0m | 📥 Processing query: Explain machine learning concepts briefly....
+2025-10-21 20:35:32 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 11.17s | Cache: MISS | Tier: tier1
+2025-10-21 20:35:32 | llm_router | [32mINFO[0m | 📥 Processing query: Summarize the benefits of cloud computing....
+2025-10-21 20:35:42 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 9.96s | Cache: MISS | Tier: tier2
+2025-10-21 20:35:42 | llm_router | [32mINFO[0m | 📥 Processing query: Create a Python function to implement a binary sea...
+2025-10-21 20:35:54 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 11.74s | Cache: MISS | Tier: tier3
+2025-10-21 20:35:54 | llm_router | [32mINFO[0m | 📥 Processing query: Develop a multi-step plan to reduce carbon emissio...
+2025-10-21 20:36:18 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 24.43s | Cache: MISS | Tier: tier3
+2025-10-21 20:36:18 | llm_router | [32mINFO[0m | 📥 Processing query: What is the capital of France?...
+2025-10-21 20:36:18 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.03s | Cache: HIT | Tier: None
+2025-10-21 20:37:13 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 20:37:13 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 20:37:16 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 20:37:16 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 20:37:16 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 20:37:16 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 20:37:16 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 20:37:43 | llm_router | [32mINFO[0m | 📥 Processing query: who messi ?...
+2025-10-21 20:37:49 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 6.38s | Cache: MISS | Tier: tier1
+2025-10-21 20:38:20 | llm_router | [32mINFO[0m | 📥 Processing query: who messi ?...
+2025-10-21 20:38:20 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.03s | Cache: HIT | Tier: None
+2025-10-21 20:38:23 | llm_router | [32mINFO[0m | 📥 Processing query: who messi ?...
+2025-10-21 20:38:23 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.02s | Cache: HIT | Tier: None
+2025-10-21 20:38:33 | llm_router | [32mINFO[0m | 📥 Processing query: who messi?...
+2025-10-21 20:38:33 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.03s | Cache: HIT | Tier: None
+2025-10-21 20:38:49 | llm_router | [32mINFO[0m | 📥 Processing query: who messi...
+2025-10-21 20:38:49 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.02s | Cache: HIT | Tier: None
+2025-10-21 20:39:07 | llm_router | [32mINFO[0m | 📥 Processing query: who mo salah ?...
+2025-10-21 20:39:14 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 6.86s | Cache: MISS | Tier: tier1
+2025-10-21 20:39:41 | llm_router | [32mINFO[0m | 📥 Processing query: who mo salah ?...
+2025-10-21 20:39:41 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.02s | Cache: HIT | Tier: None
+2025-10-21 20:39:49 | llm_router | [32mINFO[0m | 📥 Processing query: who mo salah ?...
+2025-10-21 20:39:50 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.03s | Cache: HIT | Tier: None
+2025-10-21 20:39:57 | llm_router | [32mINFO[0m | 📥 Processing query: who mo salah ?...
+2025-10-21 20:39:57 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.03s | Cache: HIT | Tier: None
+2025-10-21 20:43:31 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 20:43:31 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 20:43:36 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 20:43:36 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 20:43:36 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 20:43:36 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 20:43:36 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 20:48:33 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 20:48:33 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 20:48:39 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 20:48:39 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 20:48:39 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 20:48:39 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 20:48:39 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 20:49:02 | llm_router | [32mINFO[0m | 📥 Processing query: Who messi ?...
+2025-10-21 20:49:02 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.08s | Cache: HIT | Tier: None
+2025-10-21 20:49:18 | llm_router | [32mINFO[0m | 📥 Processing query: who messi ?...
+2025-10-21 20:49:19 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.08s | Cache: HIT | Tier: None
+2025-10-21 20:49:32 | llm_router | [32mINFO[0m | 📥 Processing query: who cr7 ?...
+2025-10-21 20:49:43 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 11.40s | Cache: MISS | Tier: tier1
+2025-10-21 20:50:49 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 20:50:49 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 20:50:56 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 20:50:56 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 20:50:56 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 20:50:56 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 20:50:56 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 20:51:21 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 20:51:21 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System...
+2025-10-21 20:51:28 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 20:51:28 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 20:51:28 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 20:51:28 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 20:51:28 | llm_router | [32mINFO[0m | ✅ System initialization complete!
+2025-10-21 20:51:28 | llm_router | [32mINFO[0m | 📥 Processing query: who cr7 ?...
+2025-10-21 20:51:28 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.08s | Cache: HIT | Tier: None
+2025-10-21 20:51:51 | llm_router | [32mINFO[0m | 📥 Processing query: who messi ?...
+2025-10-21 20:51:51 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.03s | Cache: HIT | Tier: None
+2025-10-21 21:16:41 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 21:16:41 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-21 21:16:47 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 21:16:47 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 21:16:47 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 21:16:47 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 21:16:47 | llm_router | [32mINFO[0m | ✅ Monitoring system initialized
+2025-10-21 21:16:47 | llm_router | [32mINFO[0m | ✅ Rate limiting initialized
+2025-10-21 21:16:47 | llm_router | [32mINFO[0m | ✅ Quality evaluator initialized
+2025-10-21 21:16:47 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-21 21:17:21 | llm_router | [32mINFO[0m | 📥 Processing query [7b07aa45-684d-4013-9987-cea2ce767fdf]: who messi ?...
+2025-10-21 21:18:01 | llm_router | [32mINFO[0m | 📥 Processing query [f9a7e802-816e-4b9d-a826-516f4ad1f26b]: who messi ?...
+2025-10-21 21:21:51 | llm_router | [32mINFO[0m | 📥 Processing query [ce03dc79-95e8-4061-8f61-07f67d5fb574]: Who messi ?...
+2025-10-21 21:29:17 | llm_router | [32mINFO[0m | 📥 Processing query [a09c68f6-6496-4592-b4ab-21aa82584f66]: who messi ?...
+2025-10-21 22:01:58 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 22:01:58 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-21 22:02:01 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 22:02:01 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 22:02:01 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 22:02:01 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 22:02:01 | llm_router | [32mINFO[0m | ✅ Monitoring system initialized
+2025-10-21 22:02:01 | llm_router | [32mINFO[0m | ✅ Rate limiting initialized
+2025-10-21 22:02:01 | llm_router | [32mINFO[0m | ✅ Quality evaluator initialized
+2025-10-21 22:02:01 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-21 22:03:17 | llm_router | [32mINFO[0m | 📥 Processing query [359688c8-56e6-46e8-adac-b106f0eaf2b6]: who messi ?...
+2025-10-21 22:10:12 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 22:10:12 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-21 22:10:16 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 22:10:16 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 22:10:16 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 22:10:16 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 22:10:16 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-21 22:10:35 | llm_router | [32mINFO[0m | 📥 Processing query [1779da4c-0e83-4580-a611-d73eaaed5fad]: who messi ?...
+2025-10-21 22:10:36 | llm_router | [32mINFO[0m | [DEBUG] Step 1: Got LLM response, time=0.83s
+2025-10-21 22:10:36 | llm_router | [32mINFO[0m | [DEBUG] Step 3: Updating statistics...
+2025-10-21 22:10:36 | llm_router | [32mINFO[0m | [DEBUG] Step 4: Recording monitoring data...
+2025-10-21 22:10:36 | llm_router | [32mINFO[0m | [DEBUG] Step 5: Creating response object...
+2025-10-21 22:10:36 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.83s | Cache: HIT | Tier: None
+2025-10-21 22:10:36 | llm_router | [32mINFO[0m | [DEBUG] Step 6: Returning response to API...
+2025-10-21 22:11:24 | llm_router | [32mINFO[0m | 📥 Processing query [0e5d717a-97ca-44ba-8b0e-7c8edbd26b9b]: creat code sql for project ecommer
+...
+2025-10-21 22:11:54 | llm_router | [32mINFO[0m | [DEBUG] Step 1: Got LLM response, time=29.92s
+2025-10-21 22:11:54 | llm_router | [32mINFO[0m | [DEBUG] Step 3: Updating statistics...
+2025-10-21 22:11:54 | llm_router | [32mINFO[0m | [DEBUG] Step 4: Recording monitoring data...
+2025-10-21 22:11:54 | llm_router | [32mINFO[0m | [DEBUG] Step 5: Creating response object...
+2025-10-21 22:11:54 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 29.92s | Cache: MISS | Tier: tier3
+2025-10-21 22:11:54 | llm_router | [32mINFO[0m | [DEBUG] Step 6: Returning response to API...
+2025-10-21 22:14:29 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 22:14:29 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-21 22:14:32 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 22:14:32 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 22:14:32 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 22:14:32 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 22:14:32 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-21 22:14:32 | llm_router | [32mINFO[0m | 📥 Processing query [04aefd76-05b7-4157-912a-c662bceb4bd8]: creat code python for snake game...
+2025-10-21 22:14:52 | llm_router | [32mINFO[0m | [DEBUG] Step 1: Got LLM response, time=20.43s
+2025-10-21 22:14:52 | llm_router | [32mINFO[0m | [DEBUG] Step 3: Updating statistics...
+2025-10-21 22:14:52 | llm_router | [32mINFO[0m | [DEBUG] Step 4: Recording monitoring data...
+2025-10-21 22:14:52 | llm_router | [32mINFO[0m | [DEBUG] Step 5: Creating response object...
+2025-10-21 22:14:52 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 20.43s | Cache: MISS | Tier: tier3
+2025-10-21 22:14:52 | llm_router | [32mINFO[0m | [DEBUG] Step 6: Returning response to API...
+2025-10-21 23:12:32 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 23:12:32 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-21 23:12:35 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 23:12:35 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 23:12:35 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 23:12:35 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 23:12:35 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-21 23:26:15 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 23:26:15 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-21 23:26:18 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 23:26:18 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 23:26:18 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 23:26:18 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 23:26:18 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-21 23:28:42 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-21 23:28:42 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-21 23:28:45 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-21 23:28:45 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-21 23:28:45 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-21 23:28:45 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-21 23:28:45 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-21 23:33:04 | llm_router | [32mINFO[0m | 📥 Processing query [4fbf419c-3b24-4546-8ee2-80cf3b1381b6]: who is messi...
+2025-10-21 23:33:14 | llm_router | [32mINFO[0m | [DEBUG] Step 1: Got LLM response, time=10.00s
+2025-10-21 23:33:14 | llm_router | [32mINFO[0m | [DEBUG] Step 3: Updating statistics...
+2025-10-21 23:33:14 | llm_router | [32mINFO[0m | [DEBUG] Step 4: Recording monitoring data...
+2025-10-21 23:33:14 | llm_router | [32mINFO[0m | [DEBUG] Step 5: Creating response object...
+2025-10-21 23:33:14 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 10.00s | Cache: MISS | Tier: tier1
+2025-10-21 23:33:14 | llm_router | [32mINFO[0m | [DEBUG] Step 6: Returning response to API...
+2025-10-22 00:30:02 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 00:30:02 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 00:30:05 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 00:30:05 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 00:30:05 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 00:30:05 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 00:30:05 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 00:40:29 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 00:40:29 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 00:40:31 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 00:40:31 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 00:40:31 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 00:40:31 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 00:40:31 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 00:41:02 | llm_router | [32mINFO[0m | 📥 Processing query [ccad8b06-b71b-4e4b-b8da-70c265fa8092]: who is messi...
+2025-10-22 00:41:09 | llm_router | [32mINFO[0m | [DEBUG] Step 1: Got LLM response, time=7.34s
+2025-10-22 00:41:09 | llm_router | [32mINFO[0m | [DEBUG] Step 3: Updating statistics...
+2025-10-22 00:41:09 | llm_router | [32mINFO[0m | [DEBUG] Step 4: Recording monitoring data...
+2025-10-22 00:41:10 | llm_router | [32mINFO[0m | [DEBUG] Step 5: Creating response object...
+2025-10-22 00:41:10 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 7.34s | Cache: MISS | Tier: tier1
+2025-10-22 00:41:10 | llm_router | [32mINFO[0m | [DEBUG] Step 6: Returning response to API...
+2025-10-22 00:42:08 | llm_router | [32mINFO[0m | 📥 Processing query [8a2d38a6-f2df-416e-b2bd-8e25f87da058]: who is messi...
+2025-10-22 00:42:08 | llm_router | [32mINFO[0m | [DEBUG] Step 1: Got LLM response, time=0.02s
+2025-10-22 00:42:08 | llm_router | [32mINFO[0m | [DEBUG] Step 3: Updating statistics...
+2025-10-22 00:42:08 | llm_router | [32mINFO[0m | [DEBUG] Step 4: Recording monitoring data...
+2025-10-22 00:42:08 | llm_router | [32mINFO[0m | [DEBUG] Step 5: Creating response object...
+2025-10-22 00:42:08 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.02s | Cache: HIT | Tier: None
+2025-10-22 00:42:08 | llm_router | [32mINFO[0m | [DEBUG] Step 6: Returning response to API...
+2025-10-22 00:49:07 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 00:49:07 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 00:49:09 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 00:49:09 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 00:49:09 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 00:49:09 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 00:49:09 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 00:50:31 | llm_router | [32mINFO[0m | 📥 Processing query [e9db144d-24bf-459a-88ef-a2ff8149408c]: who is messi...
+2025-10-22 00:50:31 | llm_router | [32mINFO[0m | [DEBUG] Step 1: Got LLM response, time=0.03s
+2025-10-22 00:50:31 | llm_router | [32mINFO[0m | [DEBUG] Step 3: Updating statistics...
+2025-10-22 00:50:31 | llm_router | [32mINFO[0m | [DEBUG] Step 4: Recording monitoring data...
+2025-10-22 00:50:31 | llm_router | [32mINFO[0m | [DEBUG] Step 5: Creating response object...
+2025-10-22 00:50:31 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.03s | Cache: HIT | Tier: None
+2025-10-22 00:50:31 | llm_router | [32mINFO[0m | [DEBUG] Step 6: Returning response to API...
+2025-10-22 00:50:53 | llm_router | [32mINFO[0m | 📥 Processing query [666e6089-232f-4910-a5fd-83cfe9692fd4]: who is messi...
+2025-10-22 00:50:53 | llm_router | [32mINFO[0m | [DEBUG] Step 1: Got LLM response, time=0.02s
+2025-10-22 00:50:53 | llm_router | [32mINFO[0m | [DEBUG] Step 3: Updating statistics...
+2025-10-22 00:50:53 | llm_router | [32mINFO[0m | [DEBUG] Step 4: Recording monitoring data...
+2025-10-22 00:50:53 | llm_router | [32mINFO[0m | [DEBUG] Step 5: Creating response object...
+2025-10-22 00:50:53 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.02s | Cache: HIT | Tier: None
+2025-10-22 00:50:53 | llm_router | [32mINFO[0m | [DEBUG] Step 6: Returning response to API...
+2025-10-22 00:57:29 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 00:57:29 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 00:57:31 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 00:57:31 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 00:57:31 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 00:57:31 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 00:57:31 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 00:59:20 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 00:59:20 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 00:59:23 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 00:59:23 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 00:59:23 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 00:59:23 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 00:59:23 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 00:59:53 | llm_router | [32mINFO[0m | 📥 Processing query [fd4ae196-b5ee-4571-9545-5effcd206948]: who is messi...
+2025-10-22 00:59:53 | llm_router | [32mINFO[0m | [DEBUG] Step 1: Got LLM response, time=0.03s
+2025-10-22 00:59:53 | llm_router | [32mINFO[0m | [DEBUG] Step 3: Updating statistics...
+2025-10-22 00:59:53 | llm_router | [32mINFO[0m | [DEBUG] Step 4: Recording monitoring data...
+2025-10-22 00:59:53 | llm_router | [32mINFO[0m | [DEBUG] Step 5: Creating response object...
+2025-10-22 00:59:53 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 0.03s | Cache: HIT | Tier: None
+2025-10-22 00:59:53 | llm_router | [32mINFO[0m | [DEBUG] Step 6: Returning response to API...
+2025-10-22 01:09:19 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:09:19 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:09:21 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:09:21 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:09:21 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:09:21 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:09:21 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:11:01 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:11:01 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:11:03 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:11:03 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:11:03 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:11:03 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:11:03 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:16:05 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:16:05 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:16:07 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:16:07 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:16:07 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:16:07 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:16:07 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:16:18 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:16:18 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:16:21 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:16:21 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:16:21 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:16:21 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:16:21 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:16:49 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:16:49 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:16:51 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:16:51 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:16:51 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:16:51 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:16:51 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:17:18 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:17:18 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:17:21 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:17:21 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:17:21 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:17:21 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:17:21 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:29:06 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:29:06 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:29:09 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:29:09 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:29:09 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:29:09 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:29:09 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:32:04 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:32:04 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:32:06 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:32:06 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:32:06 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:32:06 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:32:06 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:32:31 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:32:31 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:32:33 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:32:33 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:32:33 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:32:33 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:32:33 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:33:19 | llm_router | [32mINFO[0m | 📥 Processing query [59320d17-bcb4-4e7c-807f-7e7abc510680]: who is modric...
+2025-10-22 01:33:29 | llm_router | [32mINFO[0m | [DEBUG] Step 1: Got LLM response, time=10.22s
+2025-10-22 01:33:29 | llm_router | [32mINFO[0m | [DEBUG] Step 3: Updating statistics...
+2025-10-22 01:33:29 | llm_router | [32mINFO[0m | [DEBUG] Step 4: Recording monitoring data...
+2025-10-22 01:33:29 | llm_router | [32mINFO[0m | [DEBUG] Step 5: Creating response object...
+2025-10-22 01:33:29 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 10.22s | Cache: MISS | Tier: tier1
+2025-10-22 01:33:29 | llm_router | [32mINFO[0m | [DEBUG] Step 6: Returning response to API...
+2025-10-22 01:35:26 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:35:26 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:35:29 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:35:29 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:35:29 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:35:29 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:35:29 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:35:51 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:35:51 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:35:53 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:35:53 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:35:53 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:35:53 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:35:53 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:36:06 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:36:06 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:36:09 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:36:09 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:36:09 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:36:09 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:36:09 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:36:21 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:36:21 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:36:23 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:36:23 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:36:23 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:36:23 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:36:23 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:36:35 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:36:35 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:36:37 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:36:37 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:36:37 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:36:37 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:36:37 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:36:49 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:36:49 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:36:52 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:36:52 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:36:52 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:36:52 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:36:52 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:37:12 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:37:12 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:37:15 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:37:15 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:37:15 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:37:15 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:37:15 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:37:55 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:37:55 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:37:58 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:37:58 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:37:58 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:37:58 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:37:58 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:38:09 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:38:09 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:38:12 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:38:12 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:38:12 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:38:12 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:38:12 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:39:11 | llm_router | [32mINFO[0m | 📥 Processing query [5b961285-1b52-415e-a084-a6454323e78c]: who is nymar?...
+2025-10-22 01:39:15 | llm_router | [32mINFO[0m | [DEBUG] Step 1: Got LLM response, time=4.56s
+2025-10-22 01:39:15 | llm_router | [32mINFO[0m | [DEBUG] Step 3: Updating statistics...
+2025-10-22 01:39:15 | llm_router | [32mINFO[0m | [DEBUG] Step 4: Recording monitoring data...
+2025-10-22 01:39:15 | llm_router | [32mINFO[0m | [DEBUG] Step 5: Creating response object...
+2025-10-22 01:39:15 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 4.56s | Cache: MISS | Tier: tier1
+2025-10-22 01:39:15 | llm_router | [32mINFO[0m | [DEBUG] Step 6: Returning response to API...
+2025-10-22 01:42:21 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:42:21 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:42:23 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:42:23 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:42:23 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:42:23 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:42:23 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:42:37 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:42:37 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:42:40 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:42:40 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:42:40 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:42:40 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:42:40 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:42:53 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:42:53 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:42:56 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:42:56 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:42:56 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:42:56 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:42:56 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:43:08 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:43:08 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:43:10 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:43:10 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:43:10 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:43:10 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:43:10 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:43:22 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:43:22 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:43:25 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:43:25 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:43:25 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:43:25 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:43:25 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:43:37 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:43:37 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:43:40 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:43:40 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:43:40 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:43:40 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:43:40 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:43:56 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:43:56 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:43:59 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:43:59 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:43:59 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:43:59 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:43:59 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:51:31 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:51:31 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:51:33 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:51:33 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:51:33 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:51:33 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:51:33 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:51:47 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:51:47 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:51:49 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:51:49 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:51:49 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:51:49 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:51:49 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:52:13 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:52:13 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:52:15 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:52:15 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:52:15 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:52:15 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:52:15 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:54:01 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:54:01 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:54:03 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:54:03 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:54:03 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:54:03 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:54:03 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:57:37 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:57:37 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:57:40 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:57:40 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:57:40 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:57:40 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:57:40 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-22 01:57:42 | llm_router | [32mINFO[0m | 📥 Processing query [128df83b-3911-46fc-be8a-9c1381b98c9c]: who is mo salah...
+2025-10-22 01:57:42 | llm_router | [31mERROR[0m | ❌ Query processing failed: 'model_name'
+2025-10-22 01:57:54 | llm_router | [32mINFO[0m | 📥 Processing query [ed698a35-0484-4c17-91ab-544a67320c55]: who is mo salah...
+2025-10-22 01:57:54 | llm_router | [31mERROR[0m | ❌ Query processing failed: 'model_name'
+2025-10-22 01:58:08 | llm_router | [32mINFO[0m | 📥 Processing query [5f5b8df2-c771-4798-ab3e-51c602fe43fc]: who is mo salah...
+2025-10-22 01:58:08 | llm_router | [31mERROR[0m | ❌ Query processing failed: 'model_name'
+2025-10-22 01:59:06 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-22 01:59:06 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-22 01:59:08 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-22 01:59:08 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-22 01:59:08 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-22 01:59:08 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-22 01:59:08 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-24 18:59:49 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-24 18:59:49 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-24 18:59:53 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-24 18:59:53 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-24 18:59:53 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-24 18:59:53 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-24 18:59:53 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-24 20:29:23 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-24 20:29:23 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-24 20:29:26 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-24 20:29:26 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-24 20:29:26 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-24 20:29:26 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-24 20:29:26 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-24 20:30:03 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-24 20:30:03 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-24 20:30:05 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-24 20:30:05 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-24 20:30:05 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-24 20:30:05 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-24 20:30:05 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-24 20:30:19 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-24 20:30:19 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-24 20:30:22 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-24 20:30:22 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-24 20:30:22 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-24 20:30:22 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-24 20:30:22 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-24 20:32:02 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-10-24 20:32:02 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-10-24 20:32:05 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-10-24 20:32:05 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-10-24 20:32:05 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-10-24 20:32:05 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-10-24 20:32:05 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-10-24 20:32:35 | llm_router | [32mINFO[0m | 📥 Processing query [1aecb75f-a468-4f6e-96cd-8c0cd116958a]: who is messi?...
+2025-10-24 20:32:40 | llm_router | [32mINFO[0m | [DEBUG] Step 1: Got LLM response, time=4.60s
+2025-10-24 20:32:40 | llm_router | [32mINFO[0m | [DEBUG] Step 3: Updating statistics...
+2025-10-24 20:32:40 | llm_router | [32mINFO[0m | [DEBUG] Step 4: Recording monitoring data...
+2025-10-24 20:32:40 | llm_router | [32mINFO[0m | [DEBUG] Step 5: Creating response object...
+2025-10-24 20:32:40 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 4.60s | Cache: MISS | Tier: tier1
+2025-10-24 20:32:40 | llm_router | [32mINFO[0m | [DEBUG] Step 6: Returning response to API...
+2025-10-24 20:33:22 | llm_router | [32mINFO[0m | 📥 Processing query [1a3eab4f-5a69-42eb-b8e9-429bc86cec4d]: write code for fastapi...
+2025-10-24 20:33:35 | llm_router | [32mINFO[0m | [DEBUG] Step 1: Got LLM response, time=13.19s
+2025-10-24 20:33:35 | llm_router | [32mINFO[0m | [DEBUG] Step 3: Updating statistics...
+2025-10-24 20:33:35 | llm_router | [32mINFO[0m | [DEBUG] Step 4: Recording monitoring data...
+2025-10-24 20:33:35 | llm_router | [32mINFO[0m | [DEBUG] Step 5: Creating response object...
+2025-10-24 20:33:35 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 13.19s | Cache: MISS | Tier: tier1
+2025-10-24 20:33:35 | llm_router | [32mINFO[0m | [DEBUG] Step 6: Returning response to API...
+2025-10-24 20:38:03 | llm_router | [32mINFO[0m | 📥 Processing query [b65cd08a-2ad8-4009-808a-b7195f1453f4]: explain quantum computing as if i am years old....
+2025-10-24 20:38:07 | llm_router | [32mINFO[0m | [DEBUG] Step 1: Got LLM response, time=3.78s
+2025-10-24 20:38:07 | llm_router | [32mINFO[0m | [DEBUG] Step 3: Updating statistics...
+2025-10-24 20:38:07 | llm_router | [32mINFO[0m | [DEBUG] Step 4: Recording monitoring data...
+2025-10-24 20:38:07 | llm_router | [32mINFO[0m | [DEBUG] Step 5: Creating response object...
+2025-10-24 20:38:07 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 3.78s | Cache: MISS | Tier: tier1
+2025-10-24 20:38:07 | llm_router | [32mINFO[0m | [DEBUG] Step 6: Returning response to API...
+2025-10-24 20:39:23 | llm_router | [32mINFO[0m | 📥 Processing query [c3069d96-aac6-4200-968f-526952d92586]: Design a REST API endpoint...for  user authenticat...
+2025-10-24 20:39:36 | llm_router | [32mINFO[0m | [DEBUG] Step 1: Got LLM response, time=12.37s
+2025-10-24 20:39:36 | llm_router | [32mINFO[0m | [DEBUG] Step 3: Updating statistics...
+2025-10-24 20:39:36 | llm_router | [32mINFO[0m | [DEBUG] Step 4: Recording monitoring data...
+2025-10-24 20:39:36 | llm_router | [32mINFO[0m | [DEBUG] Step 5: Creating response object...
+2025-10-24 20:39:36 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 12.37s | Cache: MISS | Tier: tier3
+2025-10-24 20:39:36 | llm_router | [32mINFO[0m | [DEBUG] Step 6: Returning response to API...
+2025-10-24 20:42:46 | llm_router | [32mINFO[0m | 📥 Processing query [eb080a01-6b6f-4ef8-82f1-dc1319be6c74]: Explain the difference between a process and a thr...
+2025-10-24 20:42:58 | llm_router | [32mINFO[0m | [DEBUG] Step 1: Got LLM response, time=11.70s
+2025-10-24 20:42:58 | llm_router | [32mINFO[0m | [DEBUG] Step 3: Updating statistics...
+2025-10-24 20:42:58 | llm_router | [32mINFO[0m | [DEBUG] Step 4: Recording monitoring data...
+2025-10-24 20:42:58 | llm_router | [32mINFO[0m | [DEBUG] Step 5: Creating response object...
+2025-10-24 20:42:58 | llm_router | [32mINFO[0m | ✅ Query processed | Time: 11.70s | Cache: MISS | Tier: tier2
+2025-10-24 20:42:58 | llm_router | [32mINFO[0m | [DEBUG] Step 6: Returning response to API...
+2025-11-13 15:55:20 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-11-13 15:55:20 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-11-13 15:55:24 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-11-13 15:55:24 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-11-13 15:55:24 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-11-13 15:55:24 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-11-13 15:55:24 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-11-13 16:09:31 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-11-13 16:09:31 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-11-13 16:09:34 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-11-13 16:09:34 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-11-13 16:09:34 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-11-13 16:09:34 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-11-13 16:09:34 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-11-13 16:09:49 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-11-13 16:09:49 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-11-13 16:09:53 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-11-13 16:09:53 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-11-13 16:09:53 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-11-13 16:09:53 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-11-13 16:09:53 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-11-13 16:10:34 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-11-13 16:10:34 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-11-13 16:10:37 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-11-13 16:10:37 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-11-13 16:10:37 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-11-13 16:10:37 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-11-13 16:10:38 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-11-13 16:10:50 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-11-13 16:10:50 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-11-13 16:10:53 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-11-13 16:10:53 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-11-13 16:10:53 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-11-13 16:10:53 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-11-13 16:10:53 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
+2025-11-13 16:11:05 | llm_router | [32mINFO[0m | Starting logger - llm_router
+2025-11-13 16:11:05 | llm_router | [32mINFO[0m | 🚀 Initializing Dynamic LLM Router System with Professional Features...
+2025-11-13 16:11:09 | llm_router | [32mINFO[0m | ✅ Semantic cache initialized
+2025-11-13 16:11:09 | llm_router | [32mINFO[0m | ✅ Classifier initialized
+2025-11-13 16:11:09 | llm_router | [32mINFO[0m | ✅ LLM client initialized
+2025-11-13 16:11:09 | llm_router | [32mINFO[0m | ✅ LangGraph router initialized
+2025-11-13 16:11:09 | llm_router | [32mINFO[0m | ✅ System initialization complete with all professional features!
