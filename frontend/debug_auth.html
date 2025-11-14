@@ -85,11 +85,9 @@
             const token = localStorage.getItem('token');
             const user = localStorage.getItem('user');
             
-            result.innerHTML = `
-Token: ${token ? '✅ exists\n' + token.substring(0, 50) + '...' : '❌ doesn't exist'}
-
-User: ${user ? '✅ exists\n' + user : '❌ doesn't exist'}
-            `;
+            var tokenStatus = token ? '✅ exists\\n' + token.substring(0, 50) + '...' : '❌ doesnt exist';
+            var userStatus = user ? '✅ exists\\n' + user : '❌ doesnt exist';
+            result.innerHTML = 'Token: ' + tokenStatus + '\\n\\nUser: ' + userStatus;
         }
 
         async function testLogin() {
@@ -176,7 +174,7 @@ User: ${user ? '✅ exists\n' + user : '❌ doesn't exist'}
                     result.innerHTML = '<span class="error">❌ Problem:\n' + JSON.stringify(data, null, 2) + '</span>';
                 }
             } catch (error) {
-                result.innerHTML = '<span class="error">❌ Backend is not working!\nMake sure it's running on http://localhost:8000\n\nError: ' + error.message + '</span>';
+                result.innerHTML = '<span class="error">❌ Backend is not working!\nMake sure it\'s running on http://localhost:8000\n\nError: ' + error.message + '</span>';
             }
         }
 

@@ -166,10 +166,10 @@
                 const data = await response.json();
                 
                 if (response.ok) {
-                    status.textContent = `✅ Backend is working!\nVersion: ${data.version}\nStatus: ${data.status}`;
+                    status.textContent = '✅ Backend is working!\\nVersion: ' + data.version + '\\nStatus: ' + data.status;
                     section.classList.add('success');
                 } else {
-                    status.textContent = '⚠️ Backend responds but there's a problem: ' + response.status;
+                    status.textContent = '⚠️ Backend responds but there\'s a problem: ' + response.status;
                     section.classList.add('warning');
                 }
             } catch (error) {
@@ -189,18 +189,18 @@
             const user = localStorage.getItem('user');
             
             let info = '📦 LocalStorage content:\n\n';
-            info += `Token: ${token ? '✅ exists' : '❌ doesn't exist'}\n`;
-            info += `User: ${user ? '✅ exists' : '❌ doesn't exist'}\n\n`;
+            info += 'Token: ' + (token ? '✅ exists' : '❌ doesnt exist') + '\n';
+            info += 'User: ' + (user ? '✅ exists' : '❌ doesnt exist') + '\n\n';
             
             if (token) {
-                info += `Token: ${token.substring(0, 50)}...\n\n`;
+                info += 'Token: ' + token.substring(0, 50) + '...\n\n';
             }
             if (user) {
                 try {
                     const userData = JSON.parse(user);
-                    info += `User Data:\n${JSON.stringify(userData, null, 2)}`;
+                    info += 'User Data:\n' + JSON.stringify(userData, null, 2);
                 } catch (e) {
-                    info += `User Data (Parse error): ${user}`;
+                    info += 'User Data (Parse error): ' + user;
                 }
             }
             

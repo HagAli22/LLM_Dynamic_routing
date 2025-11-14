@@ -70,7 +70,7 @@
                     statusEl.textContent = '✅ Backend is working successfully! Version: ' + data.version;
                     boxEl.classList.add('success');
                 } else {
-                    statusEl.textContent = '❌ Backend responds but there's an error: ' + response.status;
+                    statusEl.textContent = '❌ Backend responds but there\'s an error: ' + response.status;
                     boxEl.classList.add('error');
                 }
             } catch (error) {
@@ -94,7 +94,7 @@
             const statusEl = document.getElementById('storage-status');
             
             if (token || user) {
-                statusEl.textContent = `⚠️ There is saved data: Token: ${token ? 'exists' : 'doesn't exist'}, User: ${user ? 'exists' : 'doesn't exist'}`;
+                statusEl.textContent = '⚠️ There is saved data: Token: ' + (token ? 'exists' : 'doesnt exist') + ', User: ' + (user ? 'exists' : 'doesnt exist');
             } else {
                 statusEl.textContent = '✅ localStorage is empty';
             }

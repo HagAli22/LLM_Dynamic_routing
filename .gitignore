@@ -39,7 +39,7 @@ __pycache__/
 *.pyc
 
 #best_model
-best_model/
+best_model
 
 ### Mac OS ###
 ### Mac OS ###
