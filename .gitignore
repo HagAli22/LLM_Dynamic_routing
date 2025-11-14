@@ -50,6 +50,6 @@ best_model
 dataset/
 
 ## API keys
-*.env
+# *.env
 
 .kiro/
