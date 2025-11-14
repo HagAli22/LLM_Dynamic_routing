@@ -50,7 +50,7 @@ def create_user_api_key(
     user_id: int,
     api_key_data: schemas.APIKeyCreate
 ) -> database.UserAPIKey:
-    """Create user API key"""
+    """Create user API key and initialize model rating"""
     encrypted = encrypt_api_key(api_key_data.api_key)
     
     db_key = database.UserAPIKey(
@@ -59,14 +59,65 @@ def create_user_api_key(
         encrypted_key=encrypted,
         key_name=api_key_data.key_name,
         model_name=api_key_data.model_name,
-        model_path=api_key_data.model_path,
-        tier=api_key_data.tier
+        tier=api_key_data.tier,
+        input_price=api_key_data.input_price,
+        output_price=api_key_data.output_price
     )
     
     db.add(db_key)
     db.commit()
     db.refresh(db_key)
+    
+    # إنشاء سجل تقييم للموديل الجديد
+    _initialize_user_model_rating(db, api_key_data.model_name, api_key_data.tier)
+    
+    # إضافة السعر للـ PRICES dictionary
+    _add_model_price(api_key_data.model_name, api_key_data.input_price, api_key_data.output_price)
+    
     return db_key
+
+
+def _initialize_user_model_rating(db: Session, model_name: str, tier: str):
+    """تهيئة تقييم الموديل الجديد بنفس نقاط أعلى موديل في الـ tier"""
+    from model_rating_system import ModelRatingManager
+    
+    # التحقق من وجود الموديل
+    existing = db.query(database.ModelRating).filter(
+        database.ModelRating.model_identifier == model_name
+    ).first()
+    
+    if existing:
+        return  # الموديل موجود بالفعل
+    
+    # الحصول على أعلى نقاط في الـ tier
+    top_model = db.query(database.ModelRating).filter(
+        database.ModelRating.tier == tier
+    ).order_by(database.ModelRating.score.desc()).first()
+    
+    initial_score = top_model.score + 1 if top_model else 101
+    
+    # إنشاء سجل جديد
+    new_rating = database.ModelRating(
+        model_identifier=model_name,
+        model_name=model_name.split('/')[-1].replace(':free', ''),
+        tier=tier,
+        score=initial_score
+    )
+    
+    db.add(new_rating)
+    db.commit()
+    print(f"✅ Initialized model rating: {model_name} with {initial_score} points in {tier} (as #1 in tier)")
+
+
+def _add_model_price(model_name: str, input_price: float, output_price: float):
+    """إضافة سعر الموديل للـ PRICES dictionary"""
+    from fallback import PRICES
+    
+    PRICES[model_name] = {
+        "input": input_price,
+        "output": output_price
+    }
+    print(f"✅ Added pricing for {model_name}: input={input_price}, output={output_price}")
 
 
 def get_user_api_keys(db: Session, user_id: int) -> List[database.UserAPIKey]:
@@ -115,15 +166,29 @@ def get_user_models_by_tier(db: Session, user_id: int) -> Dict[str, List]:
 
 
 def delete_user_api_key(db: Session, key_id: int, user_id: int) -> bool:
-    """Delete user API key"""
+    """Delete user API key and remove from rating system"""
     key = db.query(database.UserAPIKey).filter(
         database.UserAPIKey.id == key_id,
         database.UserAPIKey.user_id == user_id
     ).first()
     
     if key:
+        model_name = key.model_name
+        
+        # Delete API key
         db.delete(key)
+        
+        # Also remove model from rating system
+        model_rating = db.query(database.ModelRating).filter(
+            database.ModelRating.model_identifier == model_name
+        ).first()
+        
+        if model_rating:
+            db.delete(model_rating)
+            print(f"🗑️ Removed model {model_name} from rating system")
+        
         db.commit()
+        print(f"✅ Deleted API key and model rating: {model_name}")
         return True
     return False
 

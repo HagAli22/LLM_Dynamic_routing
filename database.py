@@ -71,9 +71,13 @@ class UserAPIKey(Base):
     provider = Column(String(50), nullable=False)
     encrypted_key = Column(Text, nullable=False)
     key_name = Column(String(100))
-    model_name = Column(String(200))  # اسم الموديل للعرض (مثل: qwen-2.5-72b-instruct)
-    model_path = Column(String(300))  # المسار الكامل (مثل: qwen/qwen-2.5-72b-instruct:free)
+    model_name = Column(String(300), nullable=False)  # الاسم الكامل للموديل (mistralai/mistral-7b-instruct:free)
+    model_path = Column(String(300))  # المسار الكامل للموديل (اختياري)
     tier = Column(String(20), default="tier1")  # tier1, tier2, أو tier3
+    
+    # Pricing per 1M tokens
+    input_price = Column(Float, default=0.15)
+    output_price = Column(Float, default=0.15)
     
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.utcnow)
@@ -364,6 +368,24 @@ def migrate_user_api_keys():
                 print("✅ Added 'tier' column to user_api_keys")
             except Exception as e:
                 print(f"⚠️  tier column might already exist: {e}")
+        
+        # Add input_price column if it doesn't exist
+        if 'input_price' not in existing_columns:
+            try:
+                conn.execute(text("ALTER TABLE user_api_keys ADD COLUMN input_price FLOAT DEFAULT 0.0"))
+                conn.commit()
+                print("✅ Added 'input_price' column to user_api_keys")
+            except Exception as e:
+                print(f"⚠️  input_price column might already exist: {e}")
+        
+        # Add output_price column if it doesn't exist
+        if 'output_price' not in existing_columns:
+            try:
+                conn.execute(text("ALTER TABLE user_api_keys ADD COLUMN output_price FLOAT DEFAULT 0.0"))
+                conn.commit()
+                print("✅ Added 'output_price' column to user_api_keys")
+            except Exception as e:
+                print(f"⚠️  output_price column might already exist: {e}")
 
 
 def migrate_messages():

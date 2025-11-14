@@ -311,8 +311,11 @@ class Router:
                 if tier in user_models and user_models[tier]:
                     # Add user models at the beginning of the tier
                     # model_name now contains the full path (e.g., qwen/qwen-2.5-72b-instruct:free)
-                    user_model_ids = [m['model_name'] for m in user_models[tier]]
+                    user_model_ids = [m['env_var_name'] for m in user_models[tier]]
                     self.models_config[tier] = user_model_ids + self.models_config[tier]
+            
+            # Update LLMClient with user models and their API keys
+            self._update_llm_client_with_user_models(user_models)
         
         initial_state = RouterState(
             query=query,
@@ -335,6 +338,58 @@ class Router:
             self.models_config = original_models_config
         
         return result
+    
+    def _update_llm_client_with_user_models(self, user_models: dict):
+        """Update LLMClient with user models and their API keys"""
+        try:
+            # Convert models_config to the format expected by LLMClient
+            from config import MODELS_CONFIG
+            updated_config = {}
+            
+            for tier, model_ids in self.models_config.items():
+                tier_models = []
+                for model_id in model_ids:
+                    # model_id should already be the full path from the database
+                    # e.g., deepseek/deepseek-chat-v3.1:free
+                    
+                    # Search for the model in the original config
+                    found = False
+                    for original_model in MODELS_CONFIG.get(tier, []):
+                        if isinstance(original_model, (list, tuple)) and len(original_model) >= 2:
+                            if original_model[1] == model_id:
+                                tier_models.append(original_model)
+                                found = True
+                                break
+                        elif original_model == model_id:
+                            tier_models.append([model_id.split('/')[-1].replace(':free', ''), model_id])
+                            found = True
+                            break
+                    
+                    # If not found in original config, it's a user-added model
+                    if not found:
+                        # Use the full model_id as the identifier
+                        model_name = model_id.split('/')[-1].replace(':free', '') if '/' in model_id else model_id
+                        tier_models.append([model_name, model_id])
+                
+                if not tier_models:
+                    tier_models = MODELS_CONFIG.get(tier, [])
+                
+                updated_config[tier] = tier_models
+            
+            # Extract user API keys
+            user_api_keys = {}
+            for tier, models_list in user_models.items():
+                for model in models_list:
+                    if 'model_path' in model and 'api_key' in model:
+                        user_api_keys[model['model_path']] = model['api_key']
+            
+            # Update LLMClient
+            if hasattr(self.llm_client, 'update_models_config'):
+                self.llm_client.update_models_config(updated_config, user_api_keys)
+                logger.info("✅ Updated LLMClient with user models")
+            
+        except Exception as e:
+            logger.warning(f"⚠️ Could not update LLMClient with user models: {e}")
     
     def _load_ranked_models(self):
         """تحميل الموديلات مرتبة حسب النقاط من قاعدة البيانات"""
@@ -366,11 +421,23 @@ class Router:
                     tier_models = []
                     for model_id in ranked_ids:
                         # البحث عن الموديل في config الأصلي
+                        found = False
                         for original_model in MODELS_CONFIG.get(tier, []):
                             if isinstance(original_model, (list, tuple)) and len(original_model) >= 2:
                                 if original_model[1] == model_id:
                                     tier_models.append(original_model)
+                                    found = True
                                     break
+                            elif original_model == model_id:
+                                tier_models.append([model_id.split('/')[-1].replace(':free', ''), model_id])
+                                found = True
+                                break
+                        
+                        # إذا لم نجد الموديل في config الأصلي،可能是用户添加的模型
+                        if not found:
+                            # 为用户添加的模型创建 tuple
+                            model_name = model_id.split('/')[-1].replace(':free', '')
+                            tier_models.append([model_name, model_id])
                     
                     # إذا لم نجد موديلات مرتبة، استخدم الأصلية
                     if not tier_models:
@@ -378,7 +445,15 @@ class Router:
                     
                     updated_config[tier] = tier_models
                 
-                self.llm_client.update_models_config(updated_config)
+                # Extract user API keys from user_models
+                user_api_keys = {}
+                if user_models:
+                    for tier, models_list in user_models.items():
+                        for model in models_list:
+                            if 'model_path' in model and 'api_key' in model:
+                                user_api_keys[model['model_path']] = model['api_key']
+                
+                self.llm_client.update_models_config(updated_config, user_api_keys)
                 logger.info("✅ Updated LLMClient with ranked models")
         
         except Exception as e:

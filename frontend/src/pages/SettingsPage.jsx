@@ -7,7 +7,7 @@ export default function SettingsPage({ user }) {
   const [apiKeys, setApiKeys] = useState([]);
   const [stats, setStats] = useState(null);
   const [showAddModal, setShowAddModal] = useState(false);
-  const [newKey, setNewKey] = useState({ provider: '', api_key: '', key_name: '', model_name: '', model_path: '', tier: 'tier1' });
+  const [newKey, setNewKey] = useState({ provider: '', api_key: '', key_name: '', model_name: '', tier: 'tier1', input_price: 0.15, output_price: 0.15 });
   const [modelRankings, setModelRankings] = useState({ tier1: [], tier2: [], tier3: [] });
   const [loadingRankings, setLoadingRankings] = useState(true);
 
@@ -414,26 +414,38 @@ export default function SettingsPage({ user }) {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2">اسم الموديل (اختياري)</label>
+                <label className="block text-sm font-medium mb-2">اسم الموديل (مطلوب)</label>
                 <input
                   type="text"
+                  required
                   value={newKey.model_name}
                   onChange={(e) => setNewKey({ ...newKey, model_name: e.target.value })}
-                  placeholder="مثل: qwen-2.5-72b-instruct"
+                  placeholder="مثل: mistralai/mistral-7b-instruct:free"
                   className="w-full px-4 py-2 border rounded-lg dark:bg-gray-700"
                 />
-                <p className="text-xs text-gray-500 mt-1">للعرض فقط</p>
+                <p className="text-xs text-gray-500 mt-1">الاسم الكامل للموديل</p>
               </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">مسار الموديل (اختياري)</label>
-                <input
-                  type="text"
-                  value={newKey.model_path}
-                  onChange={(e) => setNewKey({ ...newKey, model_path: e.target.value })}
-                  placeholder="مثل: qwen/qwen-2.5-72b-instruct:free"
-                  className="w-full px-4 py-2 border rounded-lg dark:bg-gray-700"
-                />
-                <p className="text-xs text-gray-500 mt-1">المسار الكامل للموديل. إذا تركته فارغاً، سيستخدم النظام الموديلات الافتراضية</p>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">سعر Input (لكل 1M tokens)</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    value={newKey.input_price || 0.15}
+                    onChange={(e) => setNewKey({ ...newKey, input_price: parseFloat(e.target.value) })}
+                    className="w-full px-4 py-2 border rounded-lg dark:bg-gray-700"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">سعر Output (لكل 1M tokens)</label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    value={newKey.output_price || 0.15}
+                    onChange={(e) => setNewKey({ ...newKey, output_price: parseFloat(e.target.value) })}
+                    className="w-full px-4 py-2 border rounded-lg dark:bg-gray-700"
+                  />
+                </div>
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Tier</label>

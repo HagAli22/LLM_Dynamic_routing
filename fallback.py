@@ -149,7 +149,7 @@ class FallbackChatGradientAI:
                 print(f"⚠️ Skipping {model_display_name} - no API key")
                 continue
             
-            print(f"\n📡 Trying model {model_idx}/{len(self.models)}: {model_display_name}")
+            print(f"\n📡 Trying model {model_idx}/{len(self.models)}: {model_identifier}")
             if model_identifier in self.user_api_keys:
                 print(f"   🔑 Using user's custom API key")
 
@@ -159,10 +159,10 @@ class FallbackChatGradientAI:
             }
 
             payload = {
-                "model": model_identifier,
+                "model": model_identifier,  # This should be the full path like deepseek/deepseek-chat-v3.1:free
                 "messages": [{"role": "user", "content": prompt}],
             }
-
+            
             for attempt in range(max_retries):
                 try:
                     print(f"   ⏳ Attempt {attempt + 1}/{max_retries}...", end=" ")

@@ -84,14 +84,21 @@ class ModelRatingManager:
                             detected_tier = tier
                             break
                 
+                # الحصول على أعلى نقاط في نفس الـ tier
+                top_model = self.db.query(ModelRating).filter(
+                    ModelRating.tier == detected_tier
+                ).order_by(ModelRating.score.desc()).first()
+                
+                initial_score = top_model.score + 1 if top_model else 101
+                
                 model_rating = ModelRating(
                     model_identifier=model_identifier,
                     model_name=model_identifier.split('/')[-1].replace(':free', ''),
                     tier=detected_tier,
-                    score=100
+                    score=initial_score
                 )
                 self.db.add(model_rating)
-                logger.info(f"✨ Created new model rating: {model_identifier} in {detected_tier}")
+                logger.info(f"✨ Created new model rating: {model_identifier} in {detected_tier} with {initial_score} points (as #1 in tier)")
             
             # تحديث النقاط والإحصائيات
             model_rating.score += points_change

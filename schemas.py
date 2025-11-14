@@ -69,18 +69,20 @@ class APIKeyCreate(BaseModel):
     provider: str = Field(..., description="Provider name (openai, anthropic, etc.)")
     api_key: str = Field(..., description="The actual API key")
     key_name: Optional[str] = None
-    model_name: Optional[str] = Field(None, description="Model display name (e.g., qwen-2.5-72b-instruct)")
-    model_path: Optional[str] = Field(None, description="Full model path (e.g., qwen/qwen-2.5-72b-instruct:free)")
+    model_name: str = Field(..., description="Full model identifier (e.g., mistralai/mistral-7b-instruct:free)")
     tier: str = Field("tier1", description="Tier for this model (tier1, tier2, tier3)")
+    input_price: float = Field(0.15, description="Price per 1M input tokens")
+    output_price: float = Field(0.15, description="Price per 1M output tokens")
 
 
 class APIKeyResponse(BaseModel):
     id: int
     provider: str
     key_name: Optional[str]
-    model_name: Optional[str]
-    model_path: Optional[str]
+    model_name: str
     tier: str
+    input_price: float
+    output_price: float
     is_active: bool
     created_at: datetime
     last_used: Optional[datetime]

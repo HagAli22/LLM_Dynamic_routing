@@ -36,20 +36,23 @@ class Classifier:
 class LLMClient:
     """Wrapper for the LLM client to match the expected interface."""
     
-    def __init__(self, models_config: Dict[str, List[List[str]]]):
+    def __init__(self, models_config: Dict[str, List[List[str]]], user_api_keys: Dict[str, str] = None):
         self.models_config = models_config
+        self.user_api_keys = user_api_keys or {}
         # Initialize fallback handlers for each tier
         self.fallback_handlers = {
-            tier: FallbackChatGradientAI(models=models_list)
+            tier: FallbackChatGradientAI(models=models_list, user_api_keys=self.user_api_keys)
             for tier, models_list in models_config.items()
         }
     
-    def update_models_config(self, new_models_config: Dict[str, List]):
+    def update_models_config(self, new_models_config: Dict[str, List], user_api_keys: Dict[str, str] = None):
         """تحديث ترتيب الموديلات ديناميكياً"""
         self.models_config = new_models_config
+        if user_api_keys is not None:
+            self.user_api_keys = user_api_keys
         # إعادة إنشاء fallback handlers بالترتيب الجديد
         self.fallback_handlers = {
-            tier: FallbackChatGradientAI(models=models_list)
+            tier: FallbackChatGradientAI(models=models_list, user_api_keys=self.user_api_keys)
             for tier, models_list in new_models_config.items()
         }
     
