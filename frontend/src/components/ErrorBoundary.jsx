@@ -19,9 +19,9 @@ class ErrorBoundary extends React.Component {
     if (this.state.hasError) {
       return (
         <div style={{ padding: '40px', fontFamily: 'Arial', direction: 'rtl' }}>
-          <h1 style={{ color: 'red', fontSize: '32px' }}>❌ حدث خطأ في التطبيق</h1>
+          <h1 style={{ color: 'red', fontSize: '32px' }}>❌ An error occurred in the application</h1>
           <div style={{ background: '#fff3cd', padding: '20px', marginTop: '20px', borderRadius: '8px' }}>
-            <h2>تفاصيل الخطأ:</h2>
+            <h2>Error Details:</h2>
             <pre style={{ background: '#f8f9fa', padding: '15px', overflow: 'auto', direction: 'ltr' }}>
               {this.state.error && this.state.error.toString()}
             </pre>
@@ -38,7 +38,7 @@ class ErrorBoundary extends React.Component {
             onClick={() => window.location.reload()} 
             style={{ marginTop: '20px', padding: '10px 20px', fontSize: '16px', cursor: 'pointer' }}
           >
-            🔄 أعد تحميل الصفحة
+            🔄 Reload the page
           </button>
         </div>
       );

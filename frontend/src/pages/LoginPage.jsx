@@ -35,7 +35,7 @@ export default function LoginPage({ setUser }) {
       navigate('/chatbot');
     } catch (err) {
       console.error('❌ Login failed:', err);
-      setError(err.response?.data?.detail || 'حدث خطأ في تسجيل الدخول');
+      setError(err.response?.data?.detail || 'An error occurred during login');
     } finally {
       setLoading(false);
     }
@@ -51,7 +51,7 @@ export default function LoginPage({ setUser }) {
           <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Dynamic LLM Router
           </h2>
-          <p className="mt-2 text-gray-600 dark:text-gray-400">تسجيل الدخول إلى حسابك</p>
+          <p className="mt-2 text-gray-600 dark:text-gray-400">Login to your account</p>
         </div>
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -64,7 +64,7 @@ export default function LoginPage({ setUser }) {
           <div className="space-y-4">
             <div>
               <label htmlFor="username" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                اسم المستخدم
+                Username
               </label>
               <input
                 id="username"
@@ -73,13 +73,13 @@ export default function LoginPage({ setUser }) {
                 value={formData.username}
                 onChange={(e) => setFormData({ ...formData, username: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white transition-all"
-                placeholder="أدخل اسم المستخدم"
+                placeholder="Enter Username"
               />
             </div>
 
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                كلمة المرور
+                Password
               </label>
               <input
                 id="password"
@@ -88,7 +88,7 @@ export default function LoginPage({ setUser }) {
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white transition-all"
-                placeholder="أدخل كلمة المرور"
+                placeholder="Enter password"
               />
             </div>
           </div>
@@ -101,18 +101,18 @@ export default function LoginPage({ setUser }) {
             {loading ? (
               <>
                 <Loader2 className="animate-spin ml-2 h-5 w-5" />
-                جاري تسجيل الدخول...
+                Logging in...
               </>
             ) : (
-              'تسجيل الدخول'
+              'Login'
             )}
           </button>
 
           <div className="text-center">
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              ليس لديك حساب؟{' '}
+              Don't have an account?{' '}
               <Link to="/register" className="font-medium text-primary hover:text-primary/80 transition-colors">
-                سجل الآن
+                Register Now
               </Link>
             </p>
           </div>

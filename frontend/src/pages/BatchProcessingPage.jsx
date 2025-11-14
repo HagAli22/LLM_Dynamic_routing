@@ -12,7 +12,7 @@ export default function BatchProcessingPage() {
     const queryList = queries.split('\n').map(q => q.trim()).filter(q => q.length > 0);
 
     if (queryList.length === 0 || queryList.length > 100) {
-      alert(queryList.length === 0 ? 'أدخل استعلام واحد على الأقل' : 'الحد الأقصى 100 استعلام');
+      alert(queryList.length === 0 ? 'Enter at least one query' : 'Maximum 100 queries');
       return;
     }
 
@@ -21,7 +21,7 @@ export default function BatchProcessingPage() {
       const response = await queriesAPI.processBatch({ queries: queryList, skip_cache: false });
       setResults(response.data);
     } catch (error) {
-      alert(error.response?.data?.detail || 'حدث خطأ');
+      alert(error.response?.data?.detail || 'An error occurred');
     } finally {
       setLoading(false);
     }
@@ -48,7 +48,7 @@ export default function BatchProcessingPage() {
     <div className="max-w-7xl mx-auto space-y-6" dir="rtl">
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white shadow-2xl">
         <h1 className="text-3xl font-bold mb-2">Batch Processing</h1>
-        <p className="text-purple-100">معالجة عدة استعلامات دفعة واحدة</p>
+        <p className="text-purple-100">Process multiple queries in one batch</p>
       </div>
 
       <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
@@ -56,7 +56,7 @@ export default function BatchProcessingPage() {
           <textarea
             value={queries}
             onChange={(e) => setQueries(e.target.value)}
-            placeholder="أدخل كل استعلام في سطر جديد..."
+            placeholder="Enter each query on a new line..."
             rows={10}
             className="w-full px-4 py-3 border rounded-xl dark:bg-gray-700 dark:text-white"
           />
@@ -65,7 +65,7 @@ export default function BatchProcessingPage() {
             disabled={loading}
             className="w-full px-6 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl disabled:opacity-50"
           >
-            {loading ? <><Loader2 className="inline animate-spin ml-2" /> معالجة...</> : 'معالجة الاستعلامات'}
+            {loading ? <><Loader2 className="inline animate-spin ml-2" /> Processing...</> : 'Process Queries'}
           </button>
         </form>
       </div>
@@ -74,25 +74,25 @@ export default function BatchProcessingPage() {
         <>
           <div className="grid grid-cols-4 gap-6">
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-              <p className="text-sm text-gray-600">الإجمالي</p>
+              <p className="text-sm text-gray-600">Total</p>
               <p className="text-3xl font-bold">{results.total_queries}</p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-              <p className="text-sm text-gray-600">ناجحة</p>
+              <p className="text-sm text-gray-600">Successful</p>
               <p className="text-3xl font-bold text-green-600">{results.successful}</p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-              <p className="text-sm text-gray-600">فاشلة</p>
+              <p className="text-sm text-gray-600">Failed</p>
               <p className="text-3xl font-bold text-red-600">{results.failed}</p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-              <p className="text-sm text-gray-600">الوقت</p>
+              <p className="text-sm text-gray-600">Time</p>
               <p className="text-3xl font-bold text-purple-600">{results.total_processing_time.toFixed(2)}s</p>
             </div>
           </div>
 
           <button onClick={exportToCSV} className="px-6 py-3 bg-green-600 text-white rounded-xl">
-            <Download className="inline h-5 w-5 ml-2" /> تصدير CSV
+            <Download className="inline h-5 w-5 ml-2" /> Export CSV
           </button>
 
           <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl">
@@ -101,10 +101,10 @@ export default function BatchProcessingPage() {
                 <thead className="bg-gray-50 dark:bg-gray-700">
                   <tr>
                     <th className="px-6 py-3 text-right text-xs font-semibold">#</th>
-                    <th className="px-6 py-3 text-right text-xs font-semibold">الاستعلام</th>
-                    <th className="px-6 py-3 text-right text-xs font-semibold">الإجابة</th>
-                    <th className="px-6 py-3 text-right text-xs font-semibold">التصنيف</th>
-                    <th className="px-6 py-3 text-right text-xs font-semibold">الوقت</th>
+                    <th className="px-6 py-3 text-right text-xs font-semibold">Query</th>
+                    <th className="px-6 py-3 text-right text-xs font-semibold">Answer</th>
+                    <th className="px-6 py-3 text-right text-xs font-semibold">Classification</th>
+                    <th className="px-6 py-3 text-right text-xs font-semibold">Time</th>
                     <th className="px-6 py-3 text-right text-xs font-semibold">Cache</th>
                   </tr>
                 </thead>

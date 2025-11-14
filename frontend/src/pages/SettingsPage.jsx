@@ -32,7 +32,7 @@ export default function SettingsPage({ user }) {
   const loadModelRankings = async () => {
     setLoadingRankings(true);
     try {
-      // جلب الموديلات المرتبة لكل tier
+      // Fetch ranked models for each tier
       const [tier1Res, tier2Res, tier3Res] = await Promise.all([
         axios.get('/api/rating/leaderboard/tier1?limit=20'),
         axios.get('/api/rating/leaderboard/tier2?limit=20'),
@@ -59,47 +59,47 @@ export default function SettingsPage({ user }) {
       setNewKey({ provider: '', api_key: '', key_name: '', model_name: '', model_path: '', tier: 'tier1' });
       loadData();
     } catch (error) {
-      alert(error.response?.data?.detail || 'فشل في إضافة المفتاح');
+      alert(error.response?.data?.detail || 'Failed to add key');
     }
   };
 
   const handleDeleteKey = async (keyId) => {
-    if (!confirm('هل أنت متأكد من حذف هذا المفتاح؟')) return;
+    if (!confirm('Are you sure you want to delete this key?')) return;
     try {
       await apiKeysAPI.delete(keyId);
       loadData();
     } catch (error) {
-      alert('فشل في حذف المفتاح');
+      alert('Failed to delete key');
     }
   };
 
   return (
     <div className="max-w-6xl mx-auto space-y-6" dir="rtl">
       <div className="bg-gradient-to-r from-indigo-600 to-blue-600 rounded-2xl p-8 text-white shadow-2xl">
-        <h1 className="text-3xl font-bold mb-2">الإعدادات</h1>
-        <p className="text-indigo-100">إدارة حسابك و API Keys</p>
+        <h1 className="text-3xl font-bold mb-2">Settings</h1>
+        <p className="text-indigo-100">Manage your account and API Keys</p>
       </div>
 
       {/* User Info */}
       <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
-        <h2 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">معلومات الحساب</h2>
+        <h2 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">Account Information</h2>
         <div className="grid grid-cols-2 gap-6">
           <div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">اسم المستخدم</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Username</p>
             <p className="text-lg font-semibold text-gray-900 dark:text-white">{user.username}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">البريد الإلكتروني</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Email</p>
             <p className="text-lg font-semibold text-gray-900 dark:text-white">{user.email}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">الدور</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Role</p>
             <p className="text-lg font-semibold text-gray-900 dark:text-white">{user.role}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">نوع API Keys</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">API Keys Type</p>
             <p className="text-lg font-semibold text-gray-900 dark:text-white">
-              {user.api_key_source === 'system_provided' ? 'النظام' : 'المستخدم'}
+              {user.api_key_source === 'system_provided' ? 'System' : 'User'}
             </p>
           </div>
         </div>
@@ -114,7 +114,7 @@ export default function SettingsPage({ user }) {
               onClick={() => setShowAddModal(true)}
               className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
             >
-              <Plus className="h-5 w-5" /> إضافة مفتاح
+              <Plus className="h-5 w-5" /> Add Key
             </button>
           </div>
 
@@ -137,7 +137,7 @@ export default function SettingsPage({ user }) {
                       {key.tier}
                     </span>
                   </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{key.key_name || 'بدون اسم'}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{key.key_name || 'No Name'}</p>
                 </div>
                 <button
                   onClick={() => handleDeleteKey(key.id)}
@@ -148,7 +148,7 @@ export default function SettingsPage({ user }) {
               </div>
             ))}
             {apiKeys.length === 0 && (
-              <p className="text-center text-gray-500 py-8">لا توجد مفاتيح API</p>
+              <p className="text-center text-gray-500 py-8">No API Keys</p>
             )}
           </div>
         </div>
@@ -159,15 +159,15 @@ export default function SettingsPage({ user }) {
         <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
           <h2 className="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
             <BarChart2 className="h-6 w-6 ml-2 text-blue-600" />
-            إحصائيات الاستخدام
+            Usage Statistics
           </h2>
           <div className="grid grid-cols-3 gap-6">
             <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">إجمالي الاستعلامات</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Queries</p>
               <p className="text-2xl font-bold text-blue-600">{stats.total_queries}</p>
             </div>
             <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">متوسط الوقت</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Average Time</p>
               <p className="text-2xl font-bold text-green-600">{stats.average_processing_time.toFixed(2)}s</p>
             </div>
             <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
@@ -183,26 +183,26 @@ export default function SettingsPage({ user }) {
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center">
             <Award className="h-6 w-6 ml-2 text-yellow-600" />
-            ترتيب الموديلات الحالي
+            Current Model Ranking
           </h2>
           <button
             onClick={loadModelRankings}
             className="text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1"
           >
             <TrendingUp className="h-4 w-4" />
-            تحديث
+            Update
           </button>
         </div>
 
         {loadingRankings ? (
-          <div className="text-center py-8 text-gray-500">جاري التحميل...</div>
+          <div className="text-center py-8 text-gray-500">Loading...</div>
         ) : (
           <div className="space-y-6">
             {/* Tier 1 */}
             <div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
                 <span className="w-2 h-2 bg-green-500 rounded-full ml-2"></span>
-                Tier 1 - Simple (أسرع وأرخص)
+                Tier 1 - Simple (Fastest and Cheapest)
               </h3>
               <div className="space-y-2">
                 {modelRankings.tier1.length > 0 ? (
@@ -242,7 +242,7 @@ export default function SettingsPage({ user }) {
                               {model.score}
                             </span>
                           </div>
-                          <p className="text-xs text-gray-500">نقطة</p>
+                          <p className="text-xs text-gray-500">Points</p>
                         </div>
                         <div className="text-xs text-gray-500 flex gap-2">
                           <span>👍 {model.total_likes}</span>
@@ -253,7 +253,7 @@ export default function SettingsPage({ user }) {
                     </div>
                   ))
                 ) : (
-                  <p className="text-center text-gray-500 py-4">لا توجد موديلات</p>
+                  <p className="text-center text-gray-500 py-4">No Models</p>
                 )}
               </div>
             </div>
@@ -262,7 +262,7 @@ export default function SettingsPage({ user }) {
             <div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
                 <span className="w-2 h-2 bg-yellow-500 rounded-full ml-2"></span>
-                Tier 2 - Medium (متوازن)
+                Tier 2 - Medium (Balanced)
               </h3>
               <div className="space-y-2">
                 {modelRankings.tier2.length > 0 ? (
@@ -297,7 +297,7 @@ export default function SettingsPage({ user }) {
                               {model.score}
                             </span>
                           </div>
-                          <p className="text-xs text-gray-500">نقطة</p>
+                          <p className="text-xs text-gray-500">Points</p>
                         </div>
                         <div className="text-xs text-gray-500 flex gap-2">
                           <span>👍 {model.total_likes}</span>
@@ -308,7 +308,7 @@ export default function SettingsPage({ user }) {
                     </div>
                   ))
                 ) : (
-                  <p className="text-center text-gray-500 py-4">لا توجد موديلات</p>
+                  <p className="text-center text-gray-500 py-4">No Models</p>
                 )}
               </div>
             </div>
@@ -317,7 +317,7 @@ export default function SettingsPage({ user }) {
             <div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
                 <span className="w-2 h-2 bg-red-500 rounded-full ml-2"></span>
-                Tier 3 - Advanced (أقوى وأغلى)
+                Tier 3 - Advanced (Most Powerful and Expensive)
               </h3>
               <div className="space-y-2">
                 {modelRankings.tier3.length > 0 ? (
@@ -352,7 +352,7 @@ export default function SettingsPage({ user }) {
                               {model.score}
                             </span>
                           </div>
-                          <p className="text-xs text-gray-500">نقطة</p>
+                          <p className="text-xs text-gray-500">Points</p>
                         </div>
                         <div className="text-xs text-gray-500 flex gap-2">
                           <span>👍 {model.total_likes}</span>
@@ -363,7 +363,7 @@ export default function SettingsPage({ user }) {
                     </div>
                   ))
                 ) : (
-                  <p className="text-center text-gray-500 py-4">لا توجد موديلات</p>
+                  <p className="text-center text-gray-500 py-4">No Models</p>
                 )}
               </div>
             </div>
@@ -372,7 +372,7 @@ export default function SettingsPage({ user }) {
 
         <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
           <p className="text-sm text-gray-700 dark:text-gray-300">
-            💡 <strong>ملاحظة:</strong> الموديلات مرتبة حسب نقاط التقييم. الموديل الأول في كل tier يتم تجربته أولاً.
+            💡 <strong>Note:</strong> Models are ranked by rating points. The first model in each tier is tried first.
           </p>
         </div>
       </div>
@@ -381,16 +381,16 @@ export default function SettingsPage({ user }) {
       {showAddModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={() => setShowAddModal(false)}>
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 max-w-md w-full mx-4" onClick={(e) => e.stopPropagation()}>
-            <h3 className="text-xl font-bold mb-6">إضافة API Key</h3>
+            <h3 className="text-xl font-bold mb-6">Add API Key</h3>
             <form onSubmit={handleAddKey} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-2">المزود</label>
+                <label className="block text-sm font-medium mb-2">Provider</label>
                 <input
                   type="text"
                   required
                   value={newKey.provider}
                   onChange={(e) => setNewKey({ ...newKey, provider: e.target.value })}
-                  placeholder="مثل: openai, anthropic"
+                  placeholder="e.g.: openai, anthropic"
                   className="w-full px-4 py-2 border rounded-lg dark:bg-gray-700"
                 />
               </div>
@@ -405,7 +405,7 @@ export default function SettingsPage({ user }) {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2">اسم المفتاح (اختياري)</label>
+                <label className="block text-sm font-medium mb-2">Key Name (Optional)</label>
                 <input
                   type="text"
                   value={newKey.key_name}
@@ -414,20 +414,20 @@ export default function SettingsPage({ user }) {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2">اسم الموديل (مطلوب)</label>
+                <label className="block text-sm font-medium mb-2">Model Name (Required)</label>
                 <input
                   type="text"
                   required
                   value={newKey.model_name}
                   onChange={(e) => setNewKey({ ...newKey, model_name: e.target.value })}
-                  placeholder="مثل: mistralai/mistral-7b-instruct:free"
+                  placeholder="e.g.: mistralai/mistral-7b-instruct:free"
                   className="w-full px-4 py-2 border rounded-lg dark:bg-gray-700"
                 />
-                <p className="text-xs text-gray-500 mt-1">الاسم الكامل للموديل</p>
+                <p className="text-xs text-gray-500 mt-1">Full model name</p>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">سعر Input (لكل 1M tokens)</label>
+                  <label className="block text-sm font-medium mb-2">Input Price (per 1M tokens)</label>
                   <input
                     type="number"
                     step="0.01"
@@ -437,7 +437,7 @@ export default function SettingsPage({ user }) {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">سعر Output (لكل 1M tokens)</label>
+                  <label className="block text-sm font-medium mb-2">Output Price (per 1M tokens)</label>
                   <input
                     type="number"
                     step="0.01"
@@ -454,22 +454,22 @@ export default function SettingsPage({ user }) {
                   onChange={(e) => setNewKey({ ...newKey, tier: e.target.value })}
                   className="w-full px-4 py-2 border rounded-lg dark:bg-gray-700"
                 >
-                  <option value="tier1">Tier 1 - أسرع وأرخص</option>
-                  <option value="tier2">Tier 2 - متوسط</option>
-                  <option value="tier3">Tier 3 - أقوى وأغلى</option>
+                  <option value="tier1">Tier 1 - Fastest and Cheapest</option>
+                  <option value="tier2">Tier 2 - Medium</option>
+                  <option value="tier3">Tier 3 - Most Powerful and Expensive</option>
                 </select>
-                <p className="text-xs text-gray-500 mt-1">موديلك سيكون الأول في هذا الـ tier</p>
+                <p className="text-xs text-gray-500 mt-1">Your model will be first in this tier</p>
               </div>
               <div className="flex gap-3">
                 <button type="submit" className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg">
-                  إضافة
+                  Add
                 </button>
                 <button
                   type="button"
                   onClick={() => setShowAddModal(false)}
                   className="flex-1 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg"
                 >
-                  إلغاء
+                  Cancel
                 </button>
               </div>
             </form>

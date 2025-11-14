@@ -1,13 +1,13 @@
 """
 Test Script for Model Rating System
-سكريبت لاختبار نظام التقييم
+Script to test rating system
 """
 
 from database import SessionLocal
 from model_rating_system import ModelRatingManager
 
 def test_rating_system():
-    """اختبار نظام التقييم"""
+    """Test rating system"""
     print("="*60)
     print("🧪 Testing Model Rating System")
     print("="*60)
@@ -15,25 +15,25 @@ def test_rating_system():
     db = SessionLocal()
     rating_manager = ModelRatingManager(db)
     
-    # 1. عرض الموديلات المرتبة
+    # 1. Show ranked models
     print("\n1️⃣ Current Model Rankings:")
     print("-"*60)
     for tier in ['tier1', 'tier2', 'tier3']:
         print(f"\n{tier.upper()}:")
         models = rating_manager.get_ranked_models(tier)
-        for i, model in enumerate(models[:5], 1):  # أول 5 موديلات
+        for i, model in enumerate(models[:5], 1):  # First 5 models
             stats = rating_manager.get_model_stats(model)
             if stats:
                 print(f"  {i}. {stats['model_name']}")
                 print(f"     Score: {stats['score']} | Likes: {stats['total_likes']} | Dislikes: {stats['total_dislikes']} | Stars: {stats['total_stars']}")
     
-    # 2. إضافة تقييمات تجريبية
+    # 2. Add test ratings
     print("\n\n2️⃣ Adding Test Feedbacks:")
     print("-"*60)
     
     test_model = "qwen/qwen-2.5-72b-instruct:free"
     
-    # إضافة إعجاب
+    # Add like
     result = rating_manager.add_feedback(
         query_id=1,
         user_id=1,
@@ -43,7 +43,7 @@ def test_rating_system():
     )
     print(f"\n✅ Added LIKE: {result}")
     
-    # إضافة نجمة
+    # Add star
     result = rating_manager.add_feedback(
         query_id=2,
         user_id=1,
@@ -53,7 +53,7 @@ def test_rating_system():
     )
     print(f"\n⭐ Added STAR: {result}")
     
-    # إضافة عدم إعجاب لموديل آخر
+    # Add dislike for another model
     test_model2 = "mistralai/mistral-7b-instruct:free"
     result = rating_manager.add_feedback(
         query_id=3,
@@ -64,7 +64,7 @@ def test_rating_system():
     )
     print(f"\n👎 Added DISLIKE: {result}")
     
-    # 3. عرض الإحصائيات المحدثة
+    # 3. Show updated statistics
     print("\n\n3️⃣ Updated Statistics:")
     print("-"*60)
     
@@ -75,7 +75,7 @@ def test_rating_system():
         print(f"Total Feedbacks: {stats['total_feedbacks']}")
         print(f"Likes: {stats['total_likes']} | Dislikes: {stats['total_dislikes']} | Stars: {stats['total_stars']}")
     
-    # 4. عرض لوحة المتصدرين
+    # 4. Show leaderboard
     print("\n\n4️⃣ Leaderboard (Tier 1):")
     print("-"*60)
     
@@ -85,7 +85,7 @@ def test_rating_system():
         print(f"   Score: {item['score']} | Feedbacks: {item['total_feedbacks']}")
         print(f"   👍 {item['total_likes']} | 👎 {item['total_dislikes']} | ⭐ {item['total_stars']}")
     
-    # 5. سجل التقييمات
+    # 5. Rating history
     print("\n\n5️⃣ Recent Feedback History:")
     print("-"*60)
     

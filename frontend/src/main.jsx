@@ -37,15 +37,15 @@ try {
   // Fallback: show error message
   rootElement.innerHTML = `
     <div style="padding: 40px; text-align: center; font-family: Arial;">
-      <h1 style="color: red;">❌ فشل تحميل التطبيق</h1>
-      <p>حدث خطأ أثناء تهيئة React. الرجاء:</p>
+      <h1 style="color: red;">❌ Failed to load application</h1>
+      <p>An error occurred while initializing React. Please:</p>
       <ul style="text-align: right; max-width: 500px; margin: 20px auto;">
-        <li>تعطيل إضافات المتصفح مؤقتاً</li>
-        <li>مسح cache المتصفح (Ctrl+Shift+Delete)</li>
-        <li>فتح الصفحة في وضع Incognito</li>
+        <li>Temporarily disable browser extensions</li>
+        <li>Clear browser cache (Ctrl+Shift+Delete)</li>
+        <li>Open the page in Incognito mode</li>
       </ul>
       <button onclick="location.reload()" style="padding: 10px 20px; font-size: 16px; cursor: pointer; margin-top: 20px;">
-        🔄 إعادة المحاولة
+        🔄 Retry
       </button>
       <details style="margin-top: 20px; text-align: left;">
         <summary style="cursor: pointer;">Technical Details</summary>

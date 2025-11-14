@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اختبار الاتصال</title>
+    <title>Connection Test</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,30 +27,30 @@
     </style>
 </head>
 <body>
-    <h1>🔧 اختبار الاتصال - LLM Router</h1>
+    <h1>🔧 Connection Test - LLM Router</h1>
     
     <div class="test-box">
-        <h2>1️⃣ اختبار Frontend</h2>
-        <p id="frontend-status">✅ Frontend يعمل بنجاح</p>
+        <h2>1️⃣ Test Frontend</h2>
+        <p id="frontend-status">✅ Frontend is working successfully</p>
     </div>
 
     <div class="test-box" id="backend-box">
-        <h2>2️⃣ اختبار Backend</h2>
-        <button onclick="testBackend()">اختبر الاتصال بـ Backend</button>
-        <p id="backend-status">انقر الزر للاختبار</p>
+        <h2>2️⃣ Test Backend</h2>
+        <button onclick="testBackend()">Test Backend Connection</button>
+        <p id="backend-status">Click button to test</p>
     </div>
 
     <div class="test-box">
-        <h2>3️⃣ اختبار localStorage</h2>
-        <button onclick="clearStorage()">امسح localStorage</button>
-        <button onclick="checkStorage()">تحقق من localStorage</button>
+        <h2>3️⃣ Test localStorage</h2>
+        <button onclick="clearStorage()">Clear localStorage</button>
+        <button onclick="checkStorage()">Check localStorage</button>
         <p id="storage-status"></p>
     </div>
 
     <div class="test-box">
-        <h2>4️⃣ افتح التطبيق</h2>
+        <h2>4️⃣ Open App</h2>
         <a href="http://localhost:3000" target="_blank">
-            <button style="background: #007bff; color: white; border: none;">افتح التطبيق</button>
+            <button style="background: #007bff; color: white; border: none;">Open App</button>
         </a>
     </div>
 
@@ -59,7 +59,7 @@
             const statusEl = document.getElementById('backend-status');
             const boxEl = document.getElementById('backend-box');
             
-            statusEl.textContent = '⏳ جاري الاختبار...';
+            statusEl.textContent = '⏳ Testing...';
             boxEl.className = 'test-box';
             
             try {
@@ -67,22 +67,22 @@
                 const data = await response.json();
                 
                 if (response.ok) {
-                    statusEl.textContent = '✅ Backend يعمل بنجاح! النسخة: ' + data.version;
+                    statusEl.textContent = '✅ Backend is working successfully! Version: ' + data.version;
                     boxEl.classList.add('success');
                 } else {
-                    statusEl.textContent = '❌ Backend يستجيب لكن هناك خطأ: ' + response.status;
+                    statusEl.textContent = '❌ Backend responds but there's an error: ' + response.status;
                     boxEl.classList.add('error');
                 }
             } catch (error) {
-                statusEl.textContent = '❌ لا يمكن الاتصال بـ Backend: ' + error.message;
-                statusEl.innerHTML += '<br>تأكد من أن Backend يعمل على http://localhost:8000';
+                statusEl.textContent = '❌ Cannot connect to Backend: ' + error.message;
+                statusEl.innerHTML += '<br>Make sure Backend is running on http://localhost:8000';
                 boxEl.classList.add('error');
             }
         }
 
         function clearStorage() {
             localStorage.clear();
-            document.getElementById('storage-status').textContent = '✅ تم مسح localStorage';
+            document.getElementById('storage-status').textContent = '✅ localStorage cleared';
             setTimeout(() => {
                 document.getElementById('storage-status').textContent = '';
             }, 3000);
@@ -94,9 +94,9 @@
             const statusEl = document.getElementById('storage-status');
             
             if (token || user) {
-                statusEl.textContent = `⚠️ يوجد بيانات محفوظة: Token: ${token ? 'موجود' : 'غير موجود'}, User: ${user ? 'موجود' : 'غير موجود'}`;
+                statusEl.textContent = `⚠️ There is saved data: Token: ${token ? 'exists' : 'doesn't exist'}, User: ${user ? 'exists' : 'doesn't exist'}`;
             } else {
-                statusEl.textContent = '✅ localStorage فارغ';
+                statusEl.textContent = '✅ localStorage is empty';
             }
         }
 

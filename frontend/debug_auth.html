@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,37 +44,37 @@
     </style>
 </head>
 <body>
-    <h1>🔍 تشخيص مشكلة Authentication</h1>
+    <h1>🔍 Authentication Problem Diagnosis</h1>
 
     <div class="section">
-        <h2>1️⃣ فحص LocalStorage</h2>
-        <button onclick="checkLocalStorage()">فحص</button>
+        <h2>1️⃣ Check LocalStorage</h2>
+        <button onclick="checkLocalStorage()">Check</button>
         <pre id="localStorage-result"></pre>
     </div>
 
     <div class="section">
-        <h2>2️⃣ اختبار تسجيل الدخول</h2>
-        <input type="text" id="username" placeholder="اسم المستخدم" style="padding: 8px; margin: 5px;">
-        <input type="password" id="password" placeholder="كلمة المرور" style="padding: 8px; margin: 5px;">
-        <button onclick="testLogin()">تسجيل الدخول</button>
+        <h2>2️⃣ Test Login</h2>
+        <input type="text" id="username" placeholder="Username" style="padding: 8px; margin: 5px;">
+        <input type="password" id="password" placeholder="Password" style="padding: 8px; margin: 5px;">
+        <button onclick="testLogin()">Login</button>
         <pre id="login-result"></pre>
     </div>
 
     <div class="section">
-        <h2>3️⃣ اختبار /api/auth/me</h2>
-        <button onclick="testGetMe()">اختبار</button>
+        <h2>3️⃣ Test /api/auth/me</h2>
+        <button onclick="testGetMe()">Test</button>
         <pre id="me-result"></pre>
     </div>
 
     <div class="section">
-        <h2>4️⃣ اختبار طلب بسيط</h2>
-        <button onclick="testSimpleRequest()">اختبار /api/health</button>
+        <h2>4️⃣ Test Simple Request</h2>
+        <button onclick="testSimpleRequest()">Test /api/health</button>
         <pre id="health-result"></pre>
     </div>
 
     <div class="section">
-        <h2>5️⃣ مسح البيانات</h2>
-        <button onclick="clearAll()" style="background: #dc3545;">مسح كل البيانات</button>
+        <h2>5️⃣ Clear Data</h2>
+        <button onclick="clearAll()" style="background: #dc3545;">Clear All Data</button>
     </div>
 
     <script>
@@ -86,9 +86,9 @@
             const user = localStorage.getItem('user');
             
             result.innerHTML = `
-Token: ${token ? '✅ موجود\n' + token.substring(0, 50) + '...' : '❌ غير موجود'}
+Token: ${token ? '✅ exists\n' + token.substring(0, 50) + '...' : '❌ doesn't exist'}
 
-User: ${user ? '✅ موجود\n' + user : '❌ غير موجود'}
+User: ${user ? '✅ exists\n' + user : '❌ doesn't exist'}
             `;
         }
 
@@ -98,11 +98,11 @@ User: ${user ? '✅ موجود\n' + user : '❌ غير موجود'}
             const result = document.getElementById('login-result');
             
             if (!username || !password) {
-                result.innerHTML = '<span class="error">❌ أدخل اسم المستخدم وكلمة المرور</span>';
+                result.innerHTML = '<span class="error">❌ Enter Username and Password</span>';
                 return;
             }
 
-            result.innerHTML = '⏳ جاري تسجيل الدخول...';
+            result.innerHTML = '⏳ Logging in...';
 
             try {
                 const formData = new URLSearchParams();
@@ -122,12 +122,12 @@ User: ${user ? '✅ موجود\n' + user : '❌ غير موجود'}
                 if (response.ok) {
                     localStorage.setItem('token', data.access_token);
                     localStorage.setItem('user', JSON.stringify(data.user));
-                    result.innerHTML = '<span class="success">✅ نجح!\n' + JSON.stringify(data, null, 2) + '</span>';
+                    result.innerHTML = '<span class="success">✅ Success!\n' + JSON.stringify(data, null, 2) + '</span>';
                 } else {
-                    result.innerHTML = '<span class="error">❌ فشل:\n' + JSON.stringify(data, null, 2) + '</span>';
+                    result.innerHTML = '<span class="error">❌ Failed:\n' + JSON.stringify(data, null, 2) + '</span>';
                 }
             } catch (error) {
-                result.innerHTML = '<span class="error">❌ خطأ:\n' + error.message + '</span>';
+                result.innerHTML = '<span class="error">❌ Error:\n' + error.message + '</span>';
             }
         }
 
@@ -136,11 +136,11 @@ User: ${user ? '✅ موجود\n' + user : '❌ غير موجود'}
             const token = localStorage.getItem('token');
 
             if (!token) {
-                result.innerHTML = '<span class="error">❌ لا يوجد token. سجل دخولك أولاً</span>';
+                result.innerHTML = '<span class="error">❌ No token. Please login first</span>';
                 return;
             }
 
-            result.innerHTML = '⏳ جاري الاختبار...';
+            result.innerHTML = '⏳ Testing...';
 
             try {
                 const response = await fetch(API_URL + '/api/auth/me', {
@@ -153,37 +153,37 @@ User: ${user ? '✅ موجود\n' + user : '❌ غير موجود'}
                 const data = await response.json();
 
                 if (response.ok) {
-                    result.innerHTML = '<span class="success">✅ نجح!\n' + JSON.stringify(data, null, 2) + '</span>';
+                    result.innerHTML = '<span class="success">✅ Success!\n' + JSON.stringify(data, null, 2) + '</span>';
                 } else {
-                    result.innerHTML = '<span class="error">❌ فشل (Status: ' + response.status + '):\n' + JSON.stringify(data, null, 2) + '</span>';
+                    result.innerHTML = '<span class="error">❌ Failed (Status: ' + response.status + '):\n' + JSON.stringify(data, null, 2) + '</span>';
                 }
             } catch (error) {
-                result.innerHTML = '<span class="error">❌ خطأ:\n' + error.message + '</span>';
+                result.innerHTML = '<span class="error">❌ Error:\n' + error.message + '</span>';
             }
         }
 
         async function testSimpleRequest() {
             const result = document.getElementById('health-result');
-            result.innerHTML = '⏳ جاري الاختبار...';
+            result.innerHTML = '⏳ Testing...';
 
             try {
                 const response = await fetch(API_URL + '/api/health');
                 const data = await response.json();
 
                 if (response.ok) {
-                    result.innerHTML = '<span class="success">✅ الباك اند يعمل!\n' + JSON.stringify(data, null, 2) + '</span>';
+                    result.innerHTML = '<span class="success">✅ Backend is working!\n' + JSON.stringify(data, null, 2) + '</span>';
                 } else {
-                    result.innerHTML = '<span class="error">❌ مشكلة:\n' + JSON.stringify(data, null, 2) + '</span>';
+                    result.innerHTML = '<span class="error">❌ Problem:\n' + JSON.stringify(data, null, 2) + '</span>';
                 }
             } catch (error) {
-                result.innerHTML = '<span class="error">❌ الباك اند لا يعمل!\nتأكد من تشغيله على http://localhost:8000\n\nخطأ: ' + error.message + '</span>';
+                result.innerHTML = '<span class="error">❌ Backend is not working!\nMake sure it's running on http://localhost:8000\n\nError: ' + error.message + '</span>';
             }
         }
 
         function clearAll() {
-            if (confirm('هل تريد مسح كل البيانات من localStorage؟')) {
+            if (confirm('Do you want to Clear All Data from localStorage?')) {
                 localStorage.clear();
-                alert('✅ تم المسح!');
+                alert('✅ Cleared!');
                 location.reload();
             }
         }

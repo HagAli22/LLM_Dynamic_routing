@@ -1,6 +1,6 @@
 """
-Model Rating System - نظام تقييم الموديلات الديناميكي
-يتيح للمستخدمين تقييم الموديلات وإعادة ترتيبها تلقائياً
+Model Rating System - Dynamic Model Rating System
+Allows users to rate models and automatically reorder them
 """
 
 from sqlalchemy.orm import Session
@@ -13,9 +13,9 @@ logger = logging.getLogger(__name__)
 
 
 class ModelRatingManager:
-    """إدارة نظام تقييم الموديلات"""
+    """Manages the model rating system"""
     
-    # نقاط التقييم
+    # Rating points
     POINTS = {
         'like': 5,
         'dislike': -5,
@@ -34,26 +34,26 @@ class ModelRatingManager:
         comment: Optional[str] = None
     ) -> Dict:
         """
-        إضافة تقييم جديد للموديل
+        Add new rating for model
         
         Args:
-            query_id: معرف الاستعلام
-            user_id: معرف المستخدم
-            model_identifier: معرف الموديل
-            feedback_type: نوع التقييم (like/dislike/star)
-            comment: تعليق اختياري
+            query_id: Query identifier
+            user_id: User identifier
+            model_identifier: Model identifier
+            feedback_type: Rating type (like/dislike/star)
+            comment: Optional comment
         
         Returns:
             Dict with updated model info
         """
         try:
-            # التحقق من صحة نوع التقييم
+            # Validate rating type
             if feedback_type not in self.POINTS:
                 raise ValueError(f"Invalid feedback type: {feedback_type}")
             
             points_change = self.POINTS[feedback_type]
             
-            # إضافة التقييم الفردي
+            # Add individual rating
             feedback = ModelFeedback(
                 query_id=query_id,
                 user_id=user_id,
@@ -64,14 +64,14 @@ class ModelRatingManager:
             )
             self.db.add(feedback)
             
-            # تحديث نقاط الموديل
+            # Update model points
             model_rating = self.db.query(ModelRating).filter(
                 ModelRating.model_identifier == model_identifier
             ).first()
             
             if not model_rating:
-                # إنشاء سجل جديد إذا لم يكن موجود
-                # محاولة تحديد الـ tier من config
+                # Create new record if not exists
+                # Try to detect tier from config
                 from config import MODELS_CONFIG
                 detected_tier = "tier1"
                 for tier, models in MODELS_CONFIG.items():
@@ -84,7 +84,7 @@ class ModelRatingManager:
                             detected_tier = tier
                             break
                 
-                # الحصول على أعلى نقاط في نفس الـ tier
+                # Get highest points in same tier
                 top_model = self.db.query(ModelRating).filter(
                     ModelRating.tier == detected_tier
                 ).order_by(ModelRating.score.desc()).first()
@@ -100,7 +100,7 @@ class ModelRatingManager:
                 self.db.add(model_rating)
                 logger.info(f"✨ Created new model rating: {model_identifier} in {detected_tier} with {initial_score} points (as #1 in tier)")
             
-            # تحديث النقاط والإحصائيات
+            # Update points and statistics
             model_rating.score += points_change
             model_rating.total_feedbacks += 1
             
@@ -136,13 +136,13 @@ class ModelRatingManager:
     
     def get_ranked_models(self, tier: str) -> List[str]:
         """
-        الحصول على الموديلات مرتبة حسب النقاط في tier معين
+        Get models ranked by points in specific tier
         
         Args:
-            tier: اسم الـ tier (tier1, tier2, tier3)
+            tier: Tier name (tier1, tier2, tier3)
         
         Returns:
-            قائمة بمعرفات الموديلات مرتبة من الأعلى للأقل
+            List of model identifiers ranked from highest to lowest
         """
         try:
             models = self.db.query(ModelRating).filter(
@@ -157,7 +157,7 @@ class ModelRatingManager:
     
     def get_all_ranked_models(self) -> Dict[str, List[str]]:
         """
-        الحصول على جميع الموديلات مرتبة حسب النقاط لكل tier
+        Get all models ranked by points for all tiers
         
         Returns:
             Dict with tier names as keys and ranked model lists as values
@@ -170,10 +170,10 @@ class ModelRatingManager:
     
     def get_model_stats(self, model_identifier: str) -> Optional[Dict]:
         """
-        الحصول على إحصائيات موديل معين
+        Get statistics for specific model
         
         Args:
-            model_identifier: معرف الموديل
+            model_identifier: Model identifier
         
         Returns:
             Dict with model statistics
@@ -210,14 +210,14 @@ class ModelRatingManager:
     
     def get_tier_leaderboard(self, tier: str, limit: int = 10) -> List[Dict]:
         """
-        الحصول على لوحة المتصدرين لـ tier معين
+        Get leaderboard for specific tier
         
         Args:
-            tier: اسم الـ tier
-            limit: عدد الموديلات المطلوبة
+            tier: Tier name
+            limit: Number of models requested
         
         Returns:
-            قائمة بالموديلات مع إحصائياتها
+            List of models with their statistics
         """
         try:
             models = self.db.query(ModelRating).filter(
@@ -252,13 +252,13 @@ class ModelRatingManager:
         cost: float
     ):
         """
-        تحديث إحصائيات استخدام الموديل
+        Update model usage statistics
         
         Args:
-            model_identifier: معرف الموديل
-            success: هل نجح الاستعلام
-            response_time: وقت الاستجابة
-            cost: التكلفة
+            model_identifier: Model identifier
+            success: Whether query succeeded
+            response_time: Response time
+            cost: Cost
         """
         try:
             model = self.db.query(ModelRating).filter(
@@ -274,7 +274,7 @@ class ModelRatingManager:
             else:
                 model.failed_uses += 1
             
-            # تحديث المتوسطات
+            # Update averages
             if model.total_uses > 1:
                 model.avg_response_time = (
                     (model.avg_response_time * (model.total_uses - 1) + response_time) / model.total_uses
@@ -297,11 +297,11 @@ class ModelRatingManager:
     
     def reset_model_score(self, model_identifier: str, new_score: int = 100):
         """
-        إعادة تعيين نقاط موديل معين
+        Reset points for specific model
         
         Args:
-            model_identifier: معرف الموديل
-            new_score: النقاط الجديدة (افتراضي 100)
+            model_identifier: Model identifier
+            new_score: New points (default 100)
         """
         try:
             model = self.db.query(ModelRating).filter(
@@ -329,15 +329,15 @@ class ModelRatingManager:
         limit: int = 50
     ) -> List[Dict]:
         """
-        الحصول على سجل التقييمات
+        Get rating history
         
         Args:
-            model_identifier: تصفية حسب الموديل (اختياري)
-            user_id: تصفية حسب المستخدم (اختياري)
-            limit: عدد السجلات
+            model_identifier: Filter by model (optional)
+            user_id: Filter by user (optional)
+            limit: Number of records
         
         Returns:
-            قائمة بالتقييمات
+            List of ratings
         """
         try:
             query = self.db.query(ModelFeedback)

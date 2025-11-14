@@ -1,4 +1,4 @@
-"""Prompt Improvement System - اقتراح برومبتات أوضح"""
+"""Prompt Improvement System - Suggest clearer prompts"""
 
 from typing import List, Dict
 import re
@@ -8,11 +8,11 @@ class PromptImprover:
     """Suggest better prompts when user input is unclear"""
     
     def __init__(self):
-        # قواعد الكشف عن البرومبتات الغير واضحة
+        # Rules for detecting unclear prompts
         self.unclear_patterns = [
             r'^.{1,10}$',  # Very short prompts
-            r'^(hi|hello|hey|السلام|مرحبا|هاي)$',  # Greetings only
-            r'^(what|how|why|ايه|ازاي|ليه)\?*$',  # Single question words
+            r'^(hi|hello|hey|hello|hello|hi)$',  # Greetings only
+            r'^(what|how|why|what|how|why)\?*$',  # Single question words
         ]
     
     def is_unclear(self, prompt: str) -> bool:
@@ -60,7 +60,7 @@ class PromptImprover:
         prompt_lower = prompt.lower().strip()
         
         # Greeting responses
-        if re.match(r'^(hi|hello|hey|السلام|مرحبا|هاي)', prompt_lower):
+        if re.match(r'^(hi|hello|hey|hello|hello|hi)', prompt_lower):
             return [
                 "Hello! I need help with [specific topic]",
                 "Can you explain [concept] to me?",
@@ -68,21 +68,21 @@ class PromptImprover:
             ]
         
         # Single question words
-        if prompt_lower in ['what', 'ايه', 'إيه']:
+        if prompt_lower in ['what', 'what', 'what']:
             return [
                 "What is [specific concept or term]?",
                 "What are the main features of [topic]?",
                 "What is the difference between [X] and [Y]?"
             ]
         
-        if prompt_lower in ['how', 'ازاي', 'إزاي']:
+        if prompt_lower in ['how', 'how', 'how']:
             return [
                 "How do I [accomplish specific task]?",
                 "How does [system/concept] work?",
                 "How can I improve [specific skill]?"
             ]
         
-        if prompt_lower in ['why', 'ليه', 'ليه']:
+        if prompt_lower in ['why', 'why', 'why']:
             return [
                 "Why is [concept] important?",
                 "Why does [phenomenon] happen?",

@@ -46,11 +46,11 @@ class LLMClient:
         }
     
     def update_models_config(self, new_models_config: Dict[str, List], user_api_keys: Dict[str, str] = None):
-        """تحديث ترتيب الموديلات ديناميكياً"""
+        """Update model ranking dynamically"""
         self.models_config = new_models_config
         if user_api_keys is not None:
             self.user_api_keys = user_api_keys
-        # إعادة إنشاء fallback handlers بالترتيب الجديد
+        # Recreate fallback handlers with new ranking
         self.fallback_handlers = {
             tier: FallbackChatGradientAI(models=models_list, user_api_keys=self.user_api_keys)
             for tier, models_list in new_models_config.items()

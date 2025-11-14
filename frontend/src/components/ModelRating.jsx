@@ -1,6 +1,6 @@
 /**
  * Model Rating Component
- * مكون تقييم الموديلات
+ * Model Rating Component
  */
 
 import React, { useState } from 'react';
@@ -8,7 +8,7 @@ import { ThumbsUp, ThumbsDown, Star } from 'lucide-react';
 import axios from 'axios';
 
 const ModelRating = ({ queryId, modelIdentifier, modelName, onRatingSuccess }) => {
-  // التحقق من التقييم السابق في localStorage
+  // Check previous rating in localStorage
   const ratingKey = `rating_${queryId}_${modelIdentifier}`;
   const savedRating = localStorage.getItem(ratingKey);
   
@@ -18,7 +18,7 @@ const ModelRating = ({ queryId, modelIdentifier, modelName, onRatingSuccess }) =
 
   const handleFeedback = async (feedbackType) => {
     if (rated) {
-      setMessage('لقد قمت بالتقييم بالفعل');
+      setMessage('You have already rated');
       return;
     }
 
@@ -45,10 +45,10 @@ const ModelRating = ({ queryId, modelIdentifier, modelName, onRatingSuccess }) =
         setRated(true);
         const points = response.data.points_change;
         const emoji = feedbackType === 'like' ? '👍' : feedbackType === 'dislike' ? '👎' : '⭐';
-        const successMessage = `${emoji} شكراً! ${points > 0 ? '+' : ''}${points} نقطة`;
+        const successMessage = `${emoji} Thanks! ${points > 0 ? '+' : ''}${points} Points`;
         setMessage(successMessage);
         
-        // حفظ التقييم في localStorage
+        // Save rating in localStorage
         localStorage.setItem(ratingKey, successMessage);
         
         if (onRatingSuccess) {
@@ -57,7 +57,7 @@ const ModelRating = ({ queryId, modelIdentifier, modelName, onRatingSuccess }) =
       }
     } catch (error) {
       console.error('Error submitting feedback:', error);
-      setMessage('حدث خطأ في إرسال التقييم');
+      setMessage('An error occurred while sending the rating');
     } finally {
       setLoading(false);
     }
@@ -67,7 +67,7 @@ const ModelRating = ({ queryId, modelIdentifier, modelName, onRatingSuccess }) =
     <div className="model-rating-container">
       <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
         <div className="flex-1">
-          <p className="text-sm text-gray-600">قيّم الإجابة:</p>
+          <p className="text-sm text-gray-600">Rate the answer:</p>
           <p className="text-xs text-gray-500">{modelName}</p>
         </div>
         
@@ -80,7 +80,7 @@ const ModelRating = ({ queryId, modelIdentifier, modelName, onRatingSuccess }) =
                 ? 'bg-gray-200 cursor-not-allowed'
                 : 'bg-green-100 hover:bg-green-200 active:scale-95'
             }`}
-            title="إعجاب (+5 نقاط)"
+            title="Like (+5 points)"
           >
             <ThumbsUp className="w-5 h-5 text-green-600" />
           </button>
@@ -93,7 +93,7 @@ const ModelRating = ({ queryId, modelIdentifier, modelName, onRatingSuccess }) =
                 ? 'bg-gray-200 cursor-not-allowed'
                 : 'bg-red-100 hover:bg-red-200 active:scale-95'
             }`}
-            title="عدم إعجاب (-5 نقاط)"
+            title="Dislike (-5 points)"
           >
             <ThumbsDown className="w-5 h-5 text-red-600" />
           </button>
@@ -106,7 +106,7 @@ const ModelRating = ({ queryId, modelIdentifier, modelName, onRatingSuccess }) =
                 ? 'bg-gray-200 cursor-not-allowed'
                 : 'bg-yellow-100 hover:bg-yellow-200 active:scale-95'
             }`}
-            title="نجمة (+10 نقاط)"
+            title="Star (+10 points)"
           >
             <Star className="w-5 h-5 text-yellow-600" />
           </button>
@@ -115,7 +115,7 @@ const ModelRating = ({ queryId, modelIdentifier, modelName, onRatingSuccess }) =
 
       {message && (
         <div className={`mt-2 text-sm text-center ${
-          message.includes('خطأ') ? 'text-red-600' : 'text-green-600'
+          message.includes('error') ? 'text-red-600' : 'text-green-600'
         }`}>
           {message}
         </div>

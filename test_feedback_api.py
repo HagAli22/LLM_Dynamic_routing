@@ -1,23 +1,23 @@
 """
-اختبار API endpoint للتقييم
+Test rating API endpoint
 """
 
 import requests
 import json
 
-# تسجيل الدخول أولاً
+# Login first
 login_url = "http://localhost:8000/api/auth/login"
 login_data = {
-    "username": "your_username",  # غير ده باسم المستخدم بتاعك
-    "password": "your_password"   # غير ده بالباسورد بتاعك
+    "username": "your_username",  # Change this to your username
+    "password": "your_password"   # Change this to your password
 }
 
 print("="*60)
-print("🔐 تسجيل الدخول...")
+print("🔐 Login...")
 print("="*60)
 
 try:
-    # تسجيل الدخول
+    # Login
     response = requests.post(
         login_url,
         data=login_data,
@@ -26,17 +26,17 @@ try:
     
     if response.status_code == 200:
         token = response.json()["access_token"]
-        print("✅ تم تسجيل الدخول بنجاح!")
+        print("✅ Login successful!")
         print(f"Token: {token[:20]}...")
         
-        # إرسال تقييم
+        # Send rating
         print("\n" + "="*60)
-        print("⭐ إرسال تقييم...")
+        print("⭐ Send rating...")
         print("="*60)
         
         feedback_url = "http://localhost:8000/api/rating/feedback"
         feedback_data = {
-            "query_id": 1,  # استخدم query_id حقيقي من قاعدة البيانات
+            "query_id": 1,  # Use real query_id from database
             "model_identifier": "meta-llama/llama-3.3-8b-instruct:free",
             "feedback_type": "star",
             "comment": "Test from API"
@@ -55,11 +55,11 @@ try:
         print(f"Response: {json.dumps(response.json(), indent=2, ensure_ascii=False)}")
         
         if response.status_code == 200:
-            print("\n✅ التقييم تم بنجاح!")
+            print("\n✅ Rating submitted successfully!")
             
-            # التحقق من النقاط
+            # Check points
             print("\n" + "="*60)
-            print("🔍 التحقق من النقاط...")
+            print("🔍 Check points...")
             print("="*60)
             
             from database import SessionLocal, ModelRating
@@ -69,22 +69,22 @@ try:
             ).first()
             
             if model:
-                print(f"\n✅ النقاط الحالية: {model.score}")
+                print(f"\n✅ Current points: {model.score}")
                 print(f"   ⭐ Stars: {model.total_stars}")
                 print(f"   👍 Likes: {model.total_likes}")
                 print(f"   👎 Dislikes: {model.total_dislikes}")
             
             db.close()
         else:
-            print(f"\n❌ فشل التقييم!")
+            print(f"\n❌ Rating failed!")
             print(f"Error: {response.text}")
     
     else:
-        print(f"❌ فشل تسجيل الدخول!")
+        print(f"❌ Login failed!")
         print(f"Status: {response.status_code}")
         print(f"Response: {response.text}")
 
 except Exception as e:
-    print(f"\n❌ خطأ: {e}")
+    print(f"\n❌ Error: {e}")
 
 print("\n" + "="*60)

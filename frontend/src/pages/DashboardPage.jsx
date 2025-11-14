@@ -47,7 +47,7 @@ export default function DashboardPage({ user }) {
     } catch (error) {
       setResult({
         success: false,
-        error_message: error.response?.data?.detail || 'حدث خطأ في المعالجة',
+        error_message: error.response?.data?.detail || 'An error occurred during processing',
       });
     } finally {
       setLoading(false);
@@ -59,7 +59,7 @@ export default function DashboardPage({ user }) {
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white shadow-2xl">
         <h1 className="text-3xl font-bold mb-2">Dashboard</h1>
-        <p className="text-blue-100">معالجة استعلام واحد مع عرض التفاصيل الكاملة</p>
+        <p className="text-blue-100">Process a single query with full details</p>
       </div>
 
       {/* Stats Cards */}
@@ -68,7 +68,7 @@ export default function DashboardPage({ user }) {
           <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between mb-4">
               <Activity className="h-8 w-8 text-blue-500" />
-              <span className="text-xs font-medium text-gray-500 dark:text-gray-400">إجمالي الاستعلامات</span>
+              <span className="text-xs font-medium text-gray-500 dark:text-gray-400">Total Queries</span>
             </div>
             <p className="text-3xl font-bold text-gray-900 dark:text-white">{stats.total_queries}</p>
           </div>
@@ -76,7 +76,7 @@ export default function DashboardPage({ user }) {
           <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between mb-4">
               <Clock className="h-8 w-8 text-green-500" />
-              <span className="text-xs font-medium text-gray-500 dark:text-gray-400">متوسط الوقت</span>
+              <span className="text-xs font-medium text-gray-500 dark:text-gray-400">Average Time</span>
             </div>
             <p className="text-3xl font-bold text-gray-900 dark:text-white">{stats.average_processing_time.toFixed(2)}s</p>
           </div>
@@ -92,7 +92,7 @@ export default function DashboardPage({ user }) {
           <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
             <div className="flex items-center justify-between mb-4">
               <DollarSign className="h-8 w-8 text-purple-500" />
-              <span className="text-xs font-medium text-gray-500 dark:text-gray-400">التكلفة الإجمالية</span>
+              <span className="text-xs font-medium text-gray-500 dark:text-gray-400">Total Cost</span>
             </div>
             <p className="text-3xl font-bold text-gray-900 dark:text-white">${stats.total_cost.toFixed(4)}</p>
           </div>
@@ -101,14 +101,14 @@ export default function DashboardPage({ user }) {
 
       {/* Query Input */}
       <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700">
-        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">أدخل استعلامك</h2>
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Enter your query</h2>
         
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <textarea
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="اكتب استعلامك هنا..."
+              placeholder="Write your query here..."
               rows={4}
               className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white resize-none"
             />
@@ -122,7 +122,7 @@ export default function DashboardPage({ user }) {
               className="px-6 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all font-medium"
             >
               <TrendingUp className="inline h-5 w-5 ml-2" />
-              تصنيف فقط
+              Classify Only
             </button>
             
             <button
@@ -133,12 +133,12 @@ export default function DashboardPage({ user }) {
               {loading ? (
                 <>
                   <Loader2 className="inline animate-spin h-5 w-5 ml-2" />
-                  جاري المعالجة...
+                  Processing...
                 </>
               ) : (
                 <>
                   <Send className="inline h-5 w-5 ml-2" />
-                  إرسال الاستعلام
+                  Send Query
                 </>
               )}
             </button>
@@ -149,22 +149,22 @@ export default function DashboardPage({ user }) {
       {/* Classification Preview */}
       {classification && (
         <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 rounded-2xl p-6 shadow-lg border border-blue-200 dark:border-blue-800">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">📊 معاينة التصنيف</h3>
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">📊 Classification Preview</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">التصنيف</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">Classification</p>
               <p className="text-xl font-bold text-gray-900 dark:text-white">{classification.classification}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">Tier الموصى به</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">Recommended Tier</p>
               <p className="text-xl font-bold text-gray-900 dark:text-white">{classification.recommended_tier}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">التكلفة المتوقعة</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">Expected Cost</p>
               <p className="text-xl font-bold text-gray-900 dark:text-white">${classification.estimated_cost}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">الوقت المتوقع</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">Expected Time</p>
               <p className="text-xl font-bold text-gray-900 dark:text-white">{classification.estimated_time}s</p>
             </div>
           </div>
@@ -174,7 +174,7 @@ export default function DashboardPage({ user }) {
       {/* Result */}
       {result && (
         <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">📝 النتيجة</h3>
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">📝 Result</h3>
           
           {result.success ? (
             <div className="space-y-6">
@@ -188,7 +188,7 @@ export default function DashboardPage({ user }) {
               {/* Metadata Grid */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">التصنيف</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Classification</p>
                   <p className="text-lg font-bold text-blue-600 dark:text-blue-400">{result.classification}</p>
                 </div>
                 
@@ -198,17 +198,17 @@ export default function DashboardPage({ user }) {
                 </div>
                 
                 <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">الموديل</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Model</p>
                   <p className="text-lg font-bold text-green-600 dark:text-green-400 truncate">{result.used_model}</p>
                 </div>
                 
                 <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">وقت المعالجة</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Processing Time</p>
                   <p className="text-lg font-bold text-yellow-600 dark:text-yellow-400">{result.processing_time.toFixed(2)}s</p>
                 </div>
                 
                 <div className="p-4 bg-pink-50 dark:bg-pink-900/20 rounded-lg">
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">التكلفة</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Cost</p>
                   <p className="text-lg font-bold text-pink-600 dark:text-pink-400">${result.estimated_cost.toFixed(4)}</p>
                 </div>
                 
@@ -232,7 +232,7 @@ export default function DashboardPage({ user }) {
       {stats && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">توزيع حسب Tier</h3>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Distribution by Tier</h3>
             <div className="space-y-3">
               {Object.entries(stats.queries_by_tier).map(([tier, count]) => (
                 <div key={tier}>
@@ -254,7 +254,7 @@ export default function DashboardPage({ user }) {
           </div>
 
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">توزيع حسب التصنيف</h3>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Distribution by Classification</h3>
             <div className="space-y-3">
               {Object.entries(stats.queries_by_classification).map(([cls, count]) => (
                 <div key={cls}>

@@ -68,35 +68,35 @@ def create_user_api_key(
     db.commit()
     db.refresh(db_key)
     
-    # إنشاء سجل تقييم للموديل الجديد
+    # Create rating record for new model
     _initialize_user_model_rating(db, api_key_data.model_name, api_key_data.tier)
     
-    # إضافة السعر للـ PRICES dictionary
+    # Add price to PRICES dictionary
     _add_model_price(api_key_data.model_name, api_key_data.input_price, api_key_data.output_price)
     
     return db_key
 
 
 def _initialize_user_model_rating(db: Session, model_name: str, tier: str):
-    """تهيئة تقييم الموديل الجديد بنفس نقاط أعلى موديل في الـ tier"""
+    """Initialize new model rating with same points as top model in tier"""
     from model_rating_system import ModelRatingManager
     
-    # التحقق من وجود الموديل
+    # Check if model exists
     existing = db.query(database.ModelRating).filter(
         database.ModelRating.model_identifier == model_name
     ).first()
     
     if existing:
-        return  # الموديل موجود بالفعل
+        return  # Model already exists
     
-    # الحصول على أعلى نقاط في الـ tier
+    # Get highest points in tier
     top_model = db.query(database.ModelRating).filter(
         database.ModelRating.tier == tier
     ).order_by(database.ModelRating.score.desc()).first()
     
     initial_score = top_model.score + 1 if top_model else 101
     
-    # إنشاء سجل جديد
+    # Create new record
     new_rating = database.ModelRating(
         model_identifier=model_name,
         model_name=model_name.split('/')[-1].replace(':free', ''),
@@ -110,7 +110,7 @@ def _initialize_user_model_rating(db: Session, model_name: str, tier: str):
 
 
 def _add_model_price(model_name: str, input_price: float, output_price: float):
-    """إضافة سعر الموديل للـ PRICES dictionary"""
+    """Add model price to PRICES dictionary"""
     from fallback import PRICES
     
     PRICES[model_name] = {
@@ -155,9 +155,9 @@ def get_user_models_by_tier(db: Session, user_id: int) -> Dict[str, List]:
                 continue  # Skip if decryption fails
             
             models_by_tier[key.tier].append({
-                "model_path": model_path,  # للاستدعاء في client.chat.completions.create
-                "env_var_name": key.model_name,  # اسم المتغير (للمستقبل)
-                "api_key": decrypted_key,  # المفتاح الفعلي
+                "model_path": model_path,  # For calling client.chat.completions.create
+                "env_var_name": key.model_name,  # Variable name (for future)
+                "api_key": decrypted_key,  # Actual key
                 "provider": key.provider,
                 "key_id": key.id
             })

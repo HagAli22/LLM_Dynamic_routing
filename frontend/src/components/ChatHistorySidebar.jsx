@@ -31,20 +31,20 @@ export default function ChatHistorySidebar({
   const handleCreateConversation = async () => {
     try {
       const response = await conversationsAPI.create({
-        title: 'محادثة جديدة'
+        title: 'New Conversation'
       });
       setConversations([response.data, ...conversations]);
       onNewConversation(response.data.id);
     } catch (error) {
       console.error('Failed to create conversation:', error);
-      alert('فشل إنشاء المحادثة');
+      alert('Failed to create conversation');
     }
   };
 
   const handleDeleteConversation = async (id, e) => {
     e.stopPropagation();
     
-    if (!confirm('هل تريد حذف هذه المحادثة؟')) return;
+    if (!confirm('Do you want to delete this conversation?')) return;
     
     try {
       await conversationsAPI.delete(id);
@@ -56,7 +56,7 @@ export default function ChatHistorySidebar({
       }
     } catch (error) {
       console.error('Failed to delete conversation:', error);
-      alert('فشل حذف المحادثة');
+      alert('Failed to delete conversation');
     }
   };
 
@@ -82,7 +82,7 @@ export default function ChatHistorySidebar({
       setEditingId(null);
     } catch (error) {
       console.error('Failed to update conversation:', error);
-      alert('فشل تحديث العنوان');
+      alert('Failed to update title');
     }
   };
 
@@ -100,11 +100,11 @@ export default function ChatHistorySidebar({
     const diffHours = Math.floor(diffMs / 3600000);
     const diffDays = Math.floor(diffMs / 86400000);
     
-    if (diffMins < 1) return 'الآن';
-    if (diffMins < 60) return `منذ ${diffMins} دقيقة`;
-    if (diffHours < 24) return `منذ ${diffHours} ساعة`;
-    if (diffDays === 1) return 'أمس';
-    if (diffDays < 7) return `منذ ${diffDays} أيام`;
+    if (diffMins < 1) return 'Now';
+    if (diffMins < 60) return `ago ${diffMins} minute`;
+    if (diffHours < 24) return `ago ${diffHours} hour`;
+    if (diffDays === 1) return 'Yesterday';
+    if (diffDays < 7) return `ago ${diffDays} days`;
     
     return date.toLocaleDateString('ar-EG', { 
       day: 'numeric', 
@@ -121,7 +121,7 @@ export default function ChatHistorySidebar({
           className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg font-medium"
         >
           <Plus className="h-5 w-5" />
-          محادثة جديدة
+          New Conversation
         </button>
       </div>
 
@@ -134,8 +134,8 @@ export default function ChatHistorySidebar({
         ) : conversations.length === 0 ? (
           <div className="text-center text-gray-500 dark:text-gray-400 mt-8 px-4">
             <MessageSquare className="h-12 w-12 mx-auto mb-3 opacity-50" />
-            <p className="text-sm">لا توجد محادثات</p>
-            <p className="text-xs mt-1">ابدأ محادثة جديدة</p>
+            <p className="text-sm">No conversations</p>
+            <p className="text-xs mt-1">Start a new conversation</p>
           </div>
         ) : (
           <div className="py-2">
@@ -188,7 +188,7 @@ export default function ChatHistorySidebar({
                         </div>
                         <div className="flex items-center gap-2 mt-1">
                           <span className="text-xs text-gray-500 dark:text-gray-400">
-                            {conversation.message_count} رسالة
+                            {conversation.message_count} messages
                           </span>
                           <span className="text-xs text-gray-400">•</span>
                           <span className="text-xs text-gray-500 dark:text-gray-400">
@@ -204,14 +204,14 @@ export default function ChatHistorySidebar({
                       <button
                         onClick={(e) => handleStartEdit(conversation, e)}
                         className="p-1 hover:bg-blue-100 dark:hover:bg-blue-900/20 rounded"
-                        title="تعديل العنوان"
+                        title="Edit Title"
                       >
                         <Edit2 className="h-4 w-4 text-blue-600" />
                       </button>
                       <button
                         onClick={(e) => handleDeleteConversation(conversation.id, e)}
                         className="p-1 hover:bg-red-100 dark:hover:bg-red-900/20 rounded"
-                        title="حذف المحادثة"
+                        title="Delete Conversation"
                       >
                         <Trash2 className="h-4 w-4 text-red-600" />
                       </button>

@@ -48,7 +48,7 @@ class Router:
         cache,
         classifier,
         llm_client=None,
-        db_session=None,  # إضافة database session للتقييمات
+        db_session=None,  # Add database session for ratings
         max_retries: int = MAX_RETRIES_PER_MODEL,
     ):
         self.models_config = models_config
@@ -59,7 +59,7 @@ class Router:
         self.db_session = db_session
         self.workflow = self._create_workflow()
         
-        # تحميل الترتيب الديناميكي للموديلات
+        # Load dynamic model ranking
         self._load_ranked_models()
 
 
@@ -392,7 +392,7 @@ class Router:
             logger.warning(f"⚠️ Could not update LLMClient with user models: {e}")
     
     def _load_ranked_models(self):
-        """تحميل الموديلات مرتبة حسب النقاط من قاعدة البيانات"""
+        """Load models ranked by points from database"""
         if not self.db_session:
             return
         
@@ -400,27 +400,27 @@ class Router:
             from model_rating_system import ModelRatingManager
             rating_manager = ModelRatingManager(self.db_session)
             
-            # الحصول على الموديلات المرتبة لكل tier
+            # Get ranked models for each tier
             ranked_models = rating_manager.get_all_ranked_models()
             
-            # تحديث models_config بالترتيب الجديد
+            # Update models_config with new ranking
             for tier, model_list in ranked_models.items():
                 if tier in self.models_config and model_list:
-                    # استبدال القائمة القديمة بالمرتبة
+                    # Replace old list with ranked list
                     self.models_config[tier] = model_list
                     logger.info(f"✅ Loaded {len(model_list)} ranked models for {tier}")
             
-            # تحديث LLMClient بالترتيب الجديد
+            # Update LLMClient with new ranking
             if hasattr(self.llm_client, 'update_models_config'):
-                # تحويل model identifiers إلى format المطلوب للـ LLMClient
-                # LLMClient يحتاج list of tuples [name, identifier]
+                # Convert model identifiers to format required by LLMClient
+                # LLMClient needs list of tuples [name, identifier]
                 from config import MODELS_CONFIG
                 updated_config = {}
                 for tier, ranked_ids in ranked_models.items():
-                    # البحث عن الموديلات في MODELS_CONFIG الأصلي وترتيبها
+                    # Search for models in original MODELS_CONFIG and order them
                     tier_models = []
                     for model_id in ranked_ids:
-                        # البحث عن الموديل في config الأصلي
+                        # Search for model in original config
                         found = False
                         for original_model in MODELS_CONFIG.get(tier, []):
                             if isinstance(original_model, (list, tuple)) and len(original_model) >= 2:
@@ -433,13 +433,13 @@ class Router:
                                 found = True
                                 break
                         
-                        # إذا لم نجد الموديل في config الأصلي،可能是用户添加的模型
+                        # If not found in original config, it might be a user-added model
                         if not found:
                             # 为用户添加的模型创建 tuple
                             model_name = model_id.split('/')[-1].replace(':free', '')
                             tier_models.append([model_name, model_id])
                     
-                    # إذا لم نجد موديلات مرتبة، استخدم الأصلية
+                    # If no ranked models found, use originals
                     if not tier_models:
                         tier_models = MODELS_CONFIG.get(tier, [])
                     
@@ -460,5 +460,5 @@ class Router:
             logger.warning(f"⚠️  Could not load ranked models: {e}, using default order")
     
     def refresh_model_rankings(self):
-        """تحديث ترتيب الموديلات (يمكن استدعاؤه دورياً)"""
+        """Update model ranking (can be called periodically)"""
         self._load_ranked_models()

@@ -1,5 +1,5 @@
 """
-Rating API Endpoints - نقاط نهاية API للتقييمات
+Rating API Endpoints - Rating API Endpoints
 """
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -17,15 +17,15 @@ router = APIRouter(prefix="/rating", tags=["Model Rating"])
 # ==================== REQUEST/RESPONSE MODELS ====================
 
 class FeedbackRequest(BaseModel):
-    """طلب إضافة تقييم"""
-    query_id: int = Field(..., description="معرف الاستعلام")
-    model_identifier: str = Field(..., description="معرف الموديل")
-    feedback_type: str = Field(..., description="نوع التقييم: like, dislike, star")
-    comment: Optional[str] = Field(None, description="تعليق اختياري")
+    """Request to add rating"""
+    query_id: int = Field(..., description="Query identifier")
+    model_identifier: str = Field(..., description="Model identifier")
+    feedback_type: str = Field(..., description="Rating type: like, dislike, star")
+    comment: Optional[str] = Field(None, description="Optional comment")
 
 
 class FeedbackResponse(BaseModel):
-    """استجابة التقييم"""
+    """Rating response"""
     success: bool
     model_identifier: str
     feedback_type: str
@@ -35,7 +35,7 @@ class FeedbackResponse(BaseModel):
 
 
 class ModelStatsResponse(BaseModel):
-    """إحصائيات الموديل"""
+    """Model statistics"""
     model_identifier: str
     model_name: str
     tier: str
@@ -54,7 +54,7 @@ class ModelStatsResponse(BaseModel):
 
 
 class LeaderboardItem(BaseModel):
-    """عنصر في لوحة المتصدرين"""
+    """Leaderboard item"""
     rank: int
     model_identifier: str
     model_name: str
@@ -75,12 +75,12 @@ async def add_feedback(
     db: Session = Depends(get_db)
 ):
     """
-    إضافة تقييم لموديل معين
+    Add rating for specific model
     
-    - **query_id**: معرف الاستعلام
-    - **model_identifier**: معرف الموديل
+    - **query_id**: Query identifier
+    - **model_identifier**: Model identifier
     - **feedback_type**: like (👍 +5), dislike (👎 -5), star (⭐ +10)
-    - **comment**: تعليق اختياري
+    - **comment**: Optional comment
     """
     rating_manager = ModelRatingManager(db)
     
@@ -104,7 +104,7 @@ async def get_model_stats(
     db: Session = Depends(get_db)
 ):
     """
-    الحصول على إحصائيات موديل معين
+    Get statistics for specific model
     """
     rating_manager = ModelRatingManager(db)
     stats = rating_manager.get_model_stats(model_identifier)
@@ -122,10 +122,10 @@ async def get_leaderboard(
     db: Session = Depends(get_db)
 ):
     """
-    الحصول على لوحة المتصدرين لـ tier معين
+    Get leaderboard for specific tier
     
-    - **tier**: tier1, tier2, أو tier3
-    - **limit**: عدد الموديلات (افتراضي 10)
+    - **tier**: tier1, tier2, or tier3
+    - **limit**: Number of models (default 10)
     """
     if tier not in ['tier1', 'tier2', 'tier3']:
         raise HTTPException(status_code=400, detail="Invalid tier. Must be tier1, tier2, or tier3")
@@ -142,7 +142,7 @@ async def get_all_leaderboards(
     db: Session = Depends(get_db)
 ):
     """
-    الحصول على لوحة المتصدرين لجميع الـ tiers
+    Get leaderboard for all tiers
     """
     rating_manager = ModelRatingManager(db)
     
@@ -158,7 +158,7 @@ async def get_ranked_models(
     db: Session = Depends(get_db)
 ):
     """
-    الحصول على جميع الموديلات مرتبة حسب النقاط
+    Get all models ranked by points
     """
     rating_manager = ModelRatingManager(db)
     return rating_manager.get_all_ranked_models()
@@ -172,15 +172,15 @@ async def get_feedback_history(
     db: Session = Depends(get_db)
 ):
     """
-    الحصول على سجل التقييمات
+    Get rating history
     
-    - **model_identifier**: تصفية حسب الموديل (اختياري)
-    - **limit**: عدد السجلات (افتراضي 50)
+    - **model_identifier**: Filter by model (optional)
+    - **limit**: Number of records (default 50)
     """
     rating_manager = ModelRatingManager(db)
     
-    # المستخدمون العاديون يرون تقييماتهم فقط
-    # الأدمن يرى كل التقييمات
+    # Regular users see only their ratings
+    # Admin sees all ratings
     user_id = None if current_user.role.value == "admin" else current_user.id
     
     history = rating_manager.get_feedback_history(
@@ -203,7 +203,7 @@ async def reset_model_score(
     db: Session = Depends(get_db)
 ):
     """
-    إعادة تعيين نقاط موديل معين (للأدمن فقط)
+    Reset points for specific model (admin only)
     """
     if current_user.role.value != "admin":
         raise HTTPException(status_code=403, detail="Admin access required")
@@ -225,14 +225,14 @@ async def get_rating_summary(
     db: Session = Depends(get_db)
 ):
     """
-    ملخص إحصائيات نظام التقييم
+    Rating system statistics summary
     """
     from database import ModelRating, ModelFeedback
     
     total_models = db.query(ModelRating).count()
     total_feedbacks = db.query(ModelFeedback).count()
     
-    # أعلى موديل في كل tier
+    # Top model in each tier
     top_models = {}
     for tier in ['tier1', 'tier2', 'tier3']:
         top_model = db.query(ModelRating).filter(
@@ -246,7 +246,7 @@ async def get_rating_summary(
                 'score': top_model.score
             }
     
-    # إحصائيات التقييمات
+    # Rating statistics
     total_likes = db.query(ModelFeedback).filter(ModelFeedback.feedback_type == 'like').count()
     total_dislikes = db.query(ModelFeedback).filter(ModelFeedback.feedback_type == 'dislike').count()
     total_stars = db.query(ModelFeedback).filter(ModelFeedback.feedback_type == 'star').count()
@@ -266,8 +266,8 @@ async def refresh_model_rankings(
     db: Session = Depends(get_db)
 ):
     """
-    تحديث ترتيب الموديلات يدوياً
-    يستخدم لإعادة تحميل الترتيب بعد التقييمات
+    Update model ranking manually
+    Used to reload ranking after ratings
     """
     try:
         rating_manager = ModelRatingManager(db)

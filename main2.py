@@ -288,7 +288,7 @@ class DynamicLLMRouter:
         start_time = time.time()
         query_id = str(uuid.uuid4())
         
-        # تحديث ترتيب الموديلات قبل كل query
+        # Update model ranking before each query
         if self.db_session:
             try:
                 self.router.refresh_model_rankings()

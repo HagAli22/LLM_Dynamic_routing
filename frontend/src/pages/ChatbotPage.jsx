@@ -49,7 +49,7 @@ export default function ChatbotPage({ user }) {
   const createInitialConversation = async () => {
     try {
       const response = await conversationsAPI.create({
-        title: 'محادثة جديدة'
+        title: 'New Conversation'
       });
       setCurrentConversationId(response.data.id);
     } catch (error) {
@@ -76,7 +76,7 @@ export default function ChatbotPage({ user }) {
       setCurrentConversationId(conversationId);
     } catch (error) {
       console.error('Failed to load conversation:', error);
-      alert('فشل تحميل المحادثة');
+      alert('Failed to load conversation');
     } finally {
       setLoadingConversation(false);
     }
@@ -147,7 +147,7 @@ export default function ChatbotPage({ user }) {
     } catch (error) {
       const errorMessage = {
         role: 'error',
-        content: error.response?.data?.detail || 'حدث خطأ في معالجة الاستعلام',
+        content: error.response?.data?.detail || 'An error occurred while processing the query',
       };
       setMessages((prev) => [...prev, errorMessage]);
     } finally {
@@ -179,15 +179,15 @@ export default function ChatbotPage({ user }) {
       
       // Show success notification based on rating
       const messages = {
-        excellent: '⭐ شكراً! تقييمك يساعدنا على تحسين الخدمة',
-        good: '👍 شكراً لتقييمك الإيجابي',
-        poor: '🙏 نأسف للتجربة السيئة، سنعمل على التحسين'
+        excellent: '⭐ Thanks! Your rating helps us improve the service',
+        good: '👍 Thanks for your positive rating',
+        poor: '🙏 Sorry for the bad experience, we will work on improvement'
       };
       
       // Create a temporary toast notification
       const toast = document.createElement('div');
       toast.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 animate-fade-in';
-      toast.textContent = messages[rating] || 'شكراً لتقييمك!';
+      toast.textContent = messages[rating] || 'Thanks for your rating!';
       document.body.appendChild(toast);
       
       setTimeout(() => {
@@ -197,7 +197,7 @@ export default function ChatbotPage({ user }) {
       
     } catch (error) {
       console.error('Failed to submit feedback:', error);
-      alert('فشل إرسال التقييم، حاول مرة أخرى');
+      alert('Failed to send rating, try again');
     }
   };
 
@@ -222,10 +222,10 @@ export default function ChatbotPage({ user }) {
         <div className="p-6 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 rounded-t-2xl">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center">
             <Sparkles className="ml-2 h-6 w-6 text-primary" />
-            Chatbot الذكي
+            Smart Chatbot
           </h1>
           <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
-            اسأل أي سؤال وسنختار أفضل موديل LLM للإجابة
+            Ask any question and we'll choose the best LLM model to answer
           </p>
         </div>
 
@@ -235,7 +235,7 @@ export default function ChatbotPage({ user }) {
             <div className="flex items-center justify-center h-full">
               <div className="text-center">
                 <Loader2 className="h-12 w-12 animate-spin text-primary mx-auto mb-4" />
-                <p className="text-gray-600 dark:text-gray-400">جاري تحميل المحادثة...</p>
+                <p className="text-gray-600 dark:text-gray-400">Loading conversation...</p>
               </div>
             </div>
           ) : (
@@ -243,7 +243,7 @@ export default function ChatbotPage({ user }) {
           {messages.length === 0 && (
             <div className="text-center text-gray-500 dark:text-gray-400 mt-20">
               <Sparkles className="h-16 w-16 mx-auto mb-4 text-gray-300 dark:text-gray-600" />
-              <p className="text-lg">ابدأ المحادثة بطرح سؤالك</p>
+              <p className="text-lg">Start the conversation by asking your question</p>
             </div>
           )}
 
@@ -264,7 +264,7 @@ export default function ChatbotPage({ user }) {
                   <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-600 space-y-2">
                     <div className="flex items-center justify-between text-xs text-gray-600 dark:text-gray-300">
                       <span className="flex items-center">
-                        <span className="font-semibold ml-1">التصنيف:</span>
+                        <span className="font-semibold ml-1">Classification:</span>
                         <span className={`px-2 py-1 rounded ${
                           message.metadata.classification === 'S' ? 'bg-green-100 text-green-800' :
                           message.metadata.classification === 'M' ? 'bg-yellow-100 text-yellow-800' :
@@ -280,7 +280,7 @@ export default function ChatbotPage({ user }) {
                     
                     <div className="flex items-center justify-between text-xs">
                       <span className="text-gray-600 dark:text-gray-300">
-                        {message.metadata.cache_hit ? '💾 من الذاكرة' : `🤖 ${message.metadata.used_model || 'N/A'}`}
+                        {message.metadata.cache_hit ? '💾 From Memory' : `🤖 ${message.metadata.used_model || 'N/A'}`}
                       </span>
                     </div>
 
@@ -293,7 +293,7 @@ export default function ChatbotPage({ user }) {
                           modelName={message.metadata.used_model?.split('/').pop()?.replace(':free', '') || 'Model'}
                           onRatingSuccess={(data) => {
                             console.log('Rating submitted:', data);
-                            // يمكن تحديث الرسالة هنا إذا أردت
+                            // You can update messages here if you want
                           }}
                         />
                       </div>
@@ -349,7 +349,7 @@ export default function ChatbotPage({ user }) {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="اكتب سؤالك هنا..."
+              placeholder="Write your question here..."
               className="flex-1 px-6 py-4 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:text-white text-lg"
               disabled={loading}
             />

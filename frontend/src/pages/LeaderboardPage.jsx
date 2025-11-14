@@ -1,6 +1,6 @@
 /**
  * Leaderboard Page
- * صفحة لوحة المتصدرين
+ * Leaderboard Page
  */
 
 import React, { useState, useEffect } from 'react';
@@ -44,9 +44,9 @@ const LeaderboardPage = () => {
   };
 
   const tierNames = {
-    tier1: 'المستوى الأول - Simple',
-    tier2: 'المستوى الثاني - Medium',
-    tier3: 'المستوى الثالث - Advanced',
+    tier1: 'Level 1 - Simple',
+    tier2: 'Level 2 - Medium',
+    tier3: 'Level 3 - Advanced',
   };
 
   const getMedalColor = (rank) => {
@@ -63,10 +63,10 @@ const LeaderboardPage = () => {
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
             <Trophy className="w-8 h-8 text-yellow-500" />
-            لوحة المتصدرين
+            Leaderboard
           </h1>
           <p className="text-gray-600 mt-2">
-            ترتيب الموديلات حسب تقييمات المستخدمين
+            Model ranking by user ratings
           </p>
         </div>
 
@@ -74,7 +74,7 @@ const LeaderboardPage = () => {
         {summary && (
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
             <div className="bg-white p-4 rounded-lg shadow">
-              <div className="text-sm text-gray-600">إجمالي الموديلات</div>
+              <div className="text-sm text-gray-600">Total Models</div>
               <div className="text-2xl font-bold text-gray-900">
                 {summary.total_models}
               </div>
@@ -82,7 +82,7 @@ const LeaderboardPage = () => {
             <div className="bg-green-50 p-4 rounded-lg shadow">
               <div className="text-sm text-gray-600 flex items-center gap-1">
                 <ThumbsUp className="w-4 h-4" />
-                إعجابات
+                Likes
               </div>
               <div className="text-2xl font-bold text-green-600">
                 {summary.total_likes}
@@ -91,7 +91,7 @@ const LeaderboardPage = () => {
             <div className="bg-red-50 p-4 rounded-lg shadow">
               <div className="text-sm text-gray-600 flex items-center gap-1">
                 <ThumbsDown className="w-4 h-4" />
-                عدم إعجاب
+                Dislikes
               </div>
               <div className="text-2xl font-bold text-red-600">
                 {summary.total_dislikes}
@@ -100,7 +100,7 @@ const LeaderboardPage = () => {
             <div className="bg-yellow-50 p-4 rounded-lg shadow">
               <div className="text-sm text-gray-600 flex items-center gap-1">
                 <Star className="w-4 h-4" />
-                نجوم
+                Stars
               </div>
               <div className="text-2xl font-bold text-yellow-600">
                 {summary.total_stars}
@@ -130,26 +130,26 @@ const LeaderboardPage = () => {
         <div className="bg-white rounded-lg shadow overflow-hidden">
           {loading ? (
             <div className="p-8 text-center text-gray-500">
-              جاري التحميل...
+              Loading...
             </div>
           ) : (
             <table className="w-full">
               <thead className="bg-gray-50">
                 <tr>
                   <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">
-                    الترتيب
+                    Rank
                   </th>
                   <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">
-                    الموديل
+                    Model
                   </th>
                   <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">
-                    النقاط
+                    Points
                   </th>
                   <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">
-                    التقييمات
+                    Ratings
                   </th>
                   <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">
-                    معدل النجاح
+                    Success Rate
                   </th>
                 </tr>
               </thead>
@@ -212,7 +212,7 @@ const LeaderboardPage = () => {
         {summary?.top_models && (
           <div className="mt-8">
             <h2 className="text-xl font-bold text-gray-900 mb-4">
-              أفضل موديل في كل مستوى
+              Best model in each level
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {Object.entries(summary.top_models).map(([tier, model]) => (
@@ -224,7 +224,7 @@ const LeaderboardPage = () => {
                     {model.model_name}
                   </div>
                   <div className="text-2xl font-bold text-blue-600 mt-2">
-                    {model.score} نقطة
+                    {model.score} Points
                   </div>
                 </div>
               ))}

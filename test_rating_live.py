@@ -1,5 +1,5 @@
 """
-اختبار سريع لنظام التقييم
+Quick test for rating system
 """
 
 from database import SessionLocal, ModelRating
@@ -9,32 +9,32 @@ def test_rating():
     db = SessionLocal()
     manager = ModelRatingManager(db)
     
-    # الموديل اللي اتقيم
+    # Rated model
     model_id = "meta-llama/llama-3.3-8b-instruct:free"
     
     print("="*60)
-    print("🔍 فحص نقاط الموديل")
+    print("🔍 Check model points")
     print("="*60)
     
-    # البحث عن الموديل
+    # Search for model
     model = db.query(ModelRating).filter(
         ModelRating.model_identifier == model_id
     ).first()
     
     if model:
-        print(f"\n✅ الموديل موجود!")
-        print(f"   الاسم: {model.model_name}")
+        print(f"\n✅ Model exists!")
+        print(f"   Name: {model.model_name}")
         print(f"   Tier: {model.tier}")
-        print(f"   النقاط: {model.score}")
+        print(f"   Points: {model.score}")
         print(f"   👍 Likes: {model.total_likes}")
         print(f"   👎 Dislikes: {model.total_dislikes}")
         print(f"   ⭐ Stars: {model.total_stars}")
-        print(f"   إجمالي التقييمات: {model.total_feedbacks}")
+        print(f"   Total ratings: {model.total_feedbacks}")
     else:
-        print(f"\n❌ الموديل غير موجود في قاعدة البيانات!")
-        print(f"   جاري إنشاء سجل جديد...")
+        print(f"\n❌ Model not found in database!")
+        print(f"   Creating new record...")
         
-        # إضافة تقييم تجريبي
+        # Add test rating
         result = manager.add_feedback(
             query_id=1,
             user_id=1,
@@ -42,16 +42,16 @@ def test_rating():
             feedback_type='star',
             comment='Test rating'
         )
-        print(f"\n✅ تم إنشاء السجل: {result}")
+        print(f"\n✅ Record created: {result}")
     
-    # عرض الترتيب في tier1
-    print(f"\n\n📊 ترتيب Tier 1:")
+    # Show ranking in tier1
+    print(f"\n\n📊 Tier 1 Ranking:")
     print("="*60)
     
     leaderboard = manager.get_tier_leaderboard('tier1', limit=5)
     for item in leaderboard:
         print(f"\n#{item['rank']} {item['model_name']}")
-        print(f"   النقاط: {item['score']}")
+        print(f"   Points: {item['score']}")
         print(f"   👍 {item['total_likes']} | 👎 {item['total_dislikes']} | ⭐ {item['total_stars']}")
     
     db.close()

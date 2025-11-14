@@ -1,4 +1,4 @@
-"""Initialize Admin User - إنشاء مستخدم Admin"""
+"""Initialize Admin User - Create Admin user"""
 
 from database import SessionLocal, init_db, User, UserRole, APIKeySource
 from auth import get_password_hash

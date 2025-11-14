@@ -1,6 +1,6 @@
 """
 Migration Script for Model Rating System
-تشغيل هذا السكريبت لإضافة جداول نظام التقييم
+Run this script to add rating system tables
 """
 
 from database import init_db, SessionLocal
@@ -9,17 +9,17 @@ from database import ModelRating
 import sys
 
 def migrate():
-    """تشغيل الـ migration"""
+    """Run migration"""
     print("="*60)
     print("🔄 Starting Model Rating System Migration")
     print("="*60)
     
     try:
-        # إنشاء الجداول
+        # Create tables
         print("\n1️⃣ Creating database tables...")
         init_db()
         
-        # تهيئة نقاط الموديلات
+        # Initialize model points
         print("\n2️⃣ Initializing model ratings...")
         db = SessionLocal()
         
@@ -34,7 +34,7 @@ def migrate():
                     model_name = model
                     model_identifier = model
                 
-                # التحقق من وجود الموديل
+                # Check if model exists
                 existing = db.query(ModelRating).filter(
                     ModelRating.model_identifier == model_identifier
                 ).first()
@@ -44,7 +44,7 @@ def migrate():
                         model_identifier=model_identifier,
                         model_name=model_name,
                         tier=tier,
-                        score=100  # النقاط الابتدائية
+                        score=100  # Initial points
                     )
                     db.add(new_rating)
                     print(f"   ✅ Added: {model_name} ({tier})")

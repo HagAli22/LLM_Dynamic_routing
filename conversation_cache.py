@@ -1,6 +1,6 @@
 """
 Conversation-based Semantic Cache System
-يدعم إنشاء semantic cache منفصل لكل محادثة
+Supports creating separate semantic cache for each conversation
 """
 import time
 import json

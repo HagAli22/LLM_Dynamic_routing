@@ -16,19 +16,19 @@ class UserRole(enum.Enum):
     ENTERPRISE = "enterprise"
 
 class APIKeySource(enum.Enum):
-    SYSTEM_PROVIDED = "system_provided"  # النظام يوفر API Keys
-    USER_PROVIDED = "user_provided"      # المستخدم يدخل API Keys الخاصة به
+    SYSTEM_PROVIDED = "system_provided"  # System provides API Keys
+    USER_PROVIDED = "user_provided"      # User enters their own API Keys
 
 class FeedbackRating(enum.Enum):
-    EXCELLENT = "excellent"      # ممتاز
-    GOOD = "good"                # جيد
-    AVERAGE = "average"          # عادي
-    POOR = "poor"                # سيء
-    VERY_POOR = "very_poor"      # سيء جداً
+    EXCELLENT = "excellent"      # Excellent
+    GOOD = "good"                # Good
+    AVERAGE = "average"          # Average
+    POOR = "poor"                # Poor
+    VERY_POOR = "very_poor"      # Very poor
 
 # ==================== MODELS ====================
 class User(Base):
-    """User model - نموذج المستخدم"""
+    """User model - User model"""
     __tablename__ = "users"
     
     id = Column(Integer, primary_key=True, index=True)
@@ -71,9 +71,9 @@ class UserAPIKey(Base):
     provider = Column(String(50), nullable=False)
     encrypted_key = Column(Text, nullable=False)
     key_name = Column(String(100))
-    model_name = Column(String(300), nullable=False)  # الاسم الكامل للموديل (mistralai/mistral-7b-instruct:free)
-    model_path = Column(String(300))  # المسار الكامل للموديل (اختياري)
-    tier = Column(String(20), default="tier1")  # tier1, tier2, أو tier3
+    model_name = Column(String(300), nullable=False)  # Full model name (mistralai/mistral-7b-instruct:free)
+    model_path = Column(String(300))  # Full model path (optional)
+    tier = Column(String(20), default="tier1")  # tier1, tier2, or tier3
     
     # Pricing per 1M tokens
     input_price = Column(Float, default=0.15)
@@ -154,14 +154,14 @@ class PromptSuggestion(Base):
 
 
 class Conversation(Base):
-    """Chat conversations - محادثات الشات"""
+    """Chat conversations - Chat conversations"""
     __tablename__ = "conversations"
     
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     
     title = Column(String(500), nullable=False)
-    cache_file = Column(String(255))  # مسار ملف الـ semantic cache الخاص بالمحادثة
+    cache_file = Column(String(255))  # Path to semantic cache file for conversation
     
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.utcnow)
@@ -173,17 +173,17 @@ class Conversation(Base):
 
 
 class Message(Base):
-    """Chat messages - رسائل المحادثة"""
+    """Chat messages - Chat messages"""
     __tablename__ = "messages"
     
     id = Column(Integer, primary_key=True, index=True)
     conversation_id = Column(Integer, ForeignKey("conversations.id"), nullable=False)
-    query_id = Column(Integer, ForeignKey("query_logs.id"))  # ربط مع QueryLog
+    query_id = Column(Integer, ForeignKey("query_logs.id"))  # Link with QueryLog
     
-    role = Column(String(20), nullable=False)  # 'user' أو 'assistant'
+    role = Column(String(20), nullable=False)  # 'user' or 'assistant'
     content = Column(Text, nullable=False)
     
-    # Metadata للرسائل من الـ assistant (تم تغيير الاسم من metadata لأنه محجوز)
+    # Metadata for assistant messages (name changed from metadata because it's reserved)
     message_metadata = Column(JSON)
     
     created_at = Column(DateTime, default=datetime.utcnow)
@@ -210,7 +210,7 @@ class SystemAPIKey(Base):
 
 
 class ModelRating(Base):
-    """Model Rating System - نظام تقييم الموديلات"""
+    """Model Rating System - Model Rating System"""
     __tablename__ = "model_ratings"
     
     id = Column(Integer, primary_key=True, index=True)
@@ -219,7 +219,7 @@ class ModelRating(Base):
     tier = Column(String(20), nullable=False)  # tier1, tier2, tier3
     
     # Rating scores
-    score = Column(Integer, default=100)  # النقاط الحالية
+    score = Column(Integer, default=100)  # Current points
     total_likes = Column(Integer, default=0)
     total_dislikes = Column(Integer, default=0)
     total_stars = Column(Integer, default=0)
@@ -241,7 +241,7 @@ class ModelRating(Base):
 
 
 class ModelFeedback(Base):
-    """Individual feedback on model responses - تقييمات فردية"""
+    """Individual feedback on model responses - Individual feedback on model responses"""
     __tablename__ = "model_feedbacks"
     
     id = Column(Integer, primary_key=True, index=True)

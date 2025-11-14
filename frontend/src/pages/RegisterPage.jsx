@@ -25,7 +25,7 @@ export default function RegisterPage() {
       await authAPI.register(formData);
       navigate('/login');
     } catch (err) {
-      setError(err.response?.data?.detail || 'حدث خطأ في التسجيل');
+      setError(err.response?.data?.detail || 'An error occurred during registration');
     } finally {
       setLoading(false);
     }
@@ -39,9 +39,9 @@ export default function RegisterPage() {
             <Zap className="h-16 w-16 text-primary" />
           </div>
           <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            إنشاء حساب جديد
+            Create New Account
           </h2>
-          <p className="mt-2 text-gray-600 dark:text-gray-400">انضم إلى Dynamic LLM Router</p>
+          <p className="mt-2 text-gray-600 dark:text-gray-400">Join Dynamic LLM Router</p>
         </div>
 
         <form className="mt-8 space-y-4" onSubmit={handleSubmit}>
@@ -52,7 +52,7 @@ export default function RegisterPage() {
           )}
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">اسم المستخدم *</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Username *</label>
             <input
               type="text"
               required
@@ -63,7 +63,7 @@ export default function RegisterPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">البريد الإلكتروني *</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email *</label>
             <input
               type="email"
               required
@@ -74,7 +74,7 @@ export default function RegisterPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">كلمة المرور *</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Password *</label>
             <input
               type="password"
               required
@@ -85,7 +85,7 @@ export default function RegisterPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">الاسم الكامل</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
             <input
               type="text"
               value={formData.full_name}
@@ -95,7 +95,7 @@ export default function RegisterPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">الشركة</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Company</label>
             <input
               type="text"
               value={formData.company}
@@ -111,8 +111,8 @@ export default function RegisterPage() {
               onChange={(e) => setFormData({ ...formData, api_key_source: e.target.value })}
               className="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:text-white"
             >
-              <option value="system_provided">استخدام API Keys الخاصة بالنظام (مجاني)</option>
-              <option value="user_provided">سأستخدم API Keys الخاصة بي</option>
+              <option value="system_provided">Use System API Keys (Free)</option>
+              <option value="user_provided">I will use my own API Keys</option>
             </select>
           </div>
 
@@ -124,18 +124,18 @@ export default function RegisterPage() {
             {loading ? (
               <>
                 <Loader2 className="animate-spin ml-2 h-5 w-5" />
-                جاري التسجيل...
+                Registering...
               </>
             ) : (
-              'إنشاء حساب'
+              'Create Account'
             )}
           </button>
 
           <div className="text-center">
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              لديك حساب بالفعل؟{' '}
+              Already have an account?{' '}
               <Link to="/login" className="font-medium text-primary hover:text-primary/80">
-                سجل الدخول
+                Login
               </Link>
             </p>
           </div>

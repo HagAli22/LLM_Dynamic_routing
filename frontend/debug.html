@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔍 صفحة التشخيص - Debug Page</title>
+    <title>🔍 Debug Page - Diagnostic Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
-            direction: rtl;
+            direction: ltr;
             background: #f5f5f5;
         }
         .container {
@@ -73,52 +73,52 @@
 </head>
 <body>
     <div class="container">
-        <h1>🔍 صفحة تشخيص المشكلة</h1>
+        <h1>🔍 Problem Diagnosis Page</h1>
         
         <div class="test-section" id="react-test">
-            <h2>1️⃣ اختبار React</h2>
-            <p class="status" id="react-status">⏳ جاري الفحص...</p>
+            <h2>1️⃣ Test React</h2>
+            <p class="status" id="react-status">⏳ Checking...</p>
         </div>
 
         <div class="test-section" id="router-test">
-            <h2>2️⃣ اختبار React Router</h2>
-            <p class="status" id="router-status">⏳ جاري الفحص...</p>
+            <h2>2️⃣ Test React Router</h2>
+            <p class="status" id="router-status">⏳ Checking...</p>
         </div>
 
         <div class="test-section" id="backend-test">
-            <h2>3️⃣ اختبار الاتصال بالـ Backend</h2>
-            <button onclick="testBackend()">اختبر الآن</button>
-            <p class="status" id="backend-status">انقر الزر للاختبار</p>
+            <h2>3️⃣ Test Backend Connection</h2>
+            <button onclick="testBackend()">Test Now</button>
+            <p class="status" id="backend-status">Click button to test</p>
         </div>
 
         <div class="test-section" id="storage-test">
-            <h2>4️⃣ اختبار LocalStorage</h2>
-            <button onclick="checkStorage()">فحص</button>
-            <button onclick="clearAllStorage()">مسح الكل</button>
-            <p class="status" id="storage-status">انقر للفحص</p>
+            <h2>4️⃣ Test LocalStorage</h2>
+            <button onclick="checkStorage()">Check</button>
+            <button onclick="clearAllStorage()">Clear All</button>
+            <p class="status" id="storage-status">Click to Check</p>
             <pre id="storage-content" style="display: none;"></pre>
         </div>
 
         <div class="test-section" id="browser-test">
-            <h2>5️⃣ معلومات المتصفح</h2>
+            <h2>5️⃣ Browser Information</h2>
             <pre id="browser-info"></pre>
         </div>
 
         <div class="test-section">
-            <h2>6️⃣ إجراءات الحل</h2>
-            <button onclick="fixProcedure1()">1. امسح Cache</button>
-            <button onclick="fixProcedure2()">2. امسح LocalStorage</button>
-            <button onclick="window.location.href='http://localhost:3000'">3. افتح التطبيق</button>
-            <button onclick="window.location.href='http://localhost:3000/login'">4. صفحة Login</button>
+            <h2>6️⃣ Solution Procedures</h2>
+            <button onclick="fixProcedure1()">1. Clear Cache</button>
+            <button onclick="fixProcedure2()">2. Clear LocalStorage</button>
+            <button onclick="window.location.href='http://localhost:3000'">3. Open App</button>
+            <button onclick="window.location.href='http://localhost:3000/login'">4. Login Page</button>
         </div>
 
         <div class="test-section warning">
-            <h2>⚠️ إذا استمرت المشكلة</h2>
+            <h2>⚠️ If problem persists</h2>
             <ol style="text-align: right;">
-                <li>افتح Developer Tools (F12)</li>
-                <li>اذهب إلى تبويب Console</li>
-                <li>انسخ أي أخطاء تظهر باللون الأحمر</li>
-                <li>أعد تحميل الصفحة (F5) وشاهد الرسائل</li>
+                <li>Open Developer Tools (F12)</li>
+                <li>Go to Console tab</li>
+                <li>Copy any red errors that appear</li>
+                <li>Reload page (F5) and watch messages</li>
             </ol>
         </div>
     </div>
@@ -131,14 +131,14 @@
             
             try {
                 if (typeof React !== 'undefined') {
-                    status.textContent = '✅ React مُحمل بنجاح';
+                    status.textContent = '✅ React loaded successfully';
                     section.classList.add('success');
                 } else {
-                    status.textContent = '❌ React غير محمل';
+                    status.textContent = '❌ React not loaded';
                     section.classList.add('error');
                 }
             } catch (e) {
-                status.textContent = '❌ خطأ: ' + e.message;
+                status.textContent = '❌ Error: ' + e.message;
                 section.classList.add('error');
             }
         }
@@ -158,7 +158,7 @@
             const section = document.getElementById('backend-test');
             const status = document.getElementById('backend-status');
             
-            status.textContent = '⏳ جاري الاتصال...';
+            status.textContent = '⏳ Connecting...';
             section.className = 'test-section';
             
             try {
@@ -166,15 +166,15 @@
                 const data = await response.json();
                 
                 if (response.ok) {
-                    status.textContent = `✅ Backend يعمل!\nالنسخة: ${data.version}\nالحالة: ${data.status}`;
+                    status.textContent = `✅ Backend is working!\nVersion: ${data.version}\nStatus: ${data.status}`;
                     section.classList.add('success');
                 } else {
-                    status.textContent = '⚠️ Backend يستجيب لكن هناك مشكلة: ' + response.status;
+                    status.textContent = '⚠️ Backend responds but there's a problem: ' + response.status;
                     section.classList.add('warning');
                 }
             } catch (error) {
-                status.textContent = '❌ لا يمكن الاتصال بالـ Backend\n' + error.message;
-                status.textContent += '\n\n💡 تأكد من تشغيل Backend: python run_backend.py';
+                status.textContent = '❌ Cannot connect to Backend\n' + error.message;
+                status.textContent += '\n\n💡 Make sure Backend is running: python run_backend.py';
                 section.classList.add('error');
             }
         }
@@ -188,9 +188,9 @@
             const token = localStorage.getItem('token');
             const user = localStorage.getItem('user');
             
-            let info = '📦 محتوى LocalStorage:\n\n';
-            info += `Token: ${token ? '✅ موجود' : '❌ غير موجود'}\n`;
-            info += `User: ${user ? '✅ موجود' : '❌ غير موجود'}\n\n`;
+            let info = '📦 LocalStorage content:\n\n';
+            info += `Token: ${token ? '✅ exists' : '❌ doesn't exist'}\n`;
+            info += `User: ${user ? '✅ exists' : '❌ doesn't exist'}\n\n`;
             
             if (token) {
                 info += `Token: ${token.substring(0, 50)}...\n\n`;
@@ -200,11 +200,11 @@
                     const userData = JSON.parse(user);
                     info += `User Data:\n${JSON.stringify(userData, null, 2)}`;
                 } catch (e) {
-                    info += `User Data (خطأ في التحليل): ${user}`;
+                    info += `User Data (Parse error): ${user}`;
                 }
             }
             
-            status.textContent = token || user ? '⚠️ يوجد بيانات محفوظة' : '✅ LocalStorage فارغ';
+            status.textContent = token || user ? '⚠️ There is saved data' : '✅ LocalStorage is empty';
             content.textContent = info;
             content.style.display = 'block';
             
@@ -217,10 +217,10 @@
 
         // Clear Storage
         function clearAllStorage() {
-            if (confirm('هل أنت متأكد من مسح جميع البيانات المحفوظة؟')) {
+            if (confirm('Are you sure you want to clear all saved data?')) {
                 localStorage.clear();
                 sessionStorage.clear();
-                alert('✅ تم مسح جميع البيانات!');
+                alert('✅ All data cleared!');
                 checkStorage();
             }
         }
@@ -237,7 +237,7 @@
 
         // Fix procedures
         function fixProcedure1() {
-            alert('لمسح Cache:\n\n1. اضغط Ctrl+Shift+Delete\n2. اختر "Cached images and files"\n3. اضغط Clear data\n4. أعد تحميل الصفحة');
+            alert('To clear Cache:\n\n1. Press Ctrl+Shift+Delete\n2. Select "Cached images and files"\n3. Press Clear data\n4. Reload page');
         }
 
         function fixProcedure2() {

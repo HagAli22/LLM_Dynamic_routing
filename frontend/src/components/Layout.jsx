@@ -30,7 +30,7 @@ export default function Layout({ user, onLogout }) {
             <p className="text-xs text-gray-500 dark:text-gray-400">{user.email}</p>
             <div className="mt-2 text-xs">
               <span className="text-gray-600 dark:text-gray-300">
-                {user.queries_used_this_month} / {user.monthly_query_limit} استعلامات
+                {user.queries_used_this_month} / {user.monthly_query_limit} queries
               </span>
               <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-1.5 mt-1">
                 <div
@@ -69,7 +69,7 @@ export default function Layout({ user, onLogout }) {
             className="flex items-center w-full px-3 py-2.5 mt-auto text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors absolute bottom-4"
           >
             <LogOut className="h-5 w-5 ml-3" />
-            تسجيل الخروج
+            Logout
           </button>
         </div>
       </aside>
