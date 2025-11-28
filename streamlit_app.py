@@ -8,10 +8,14 @@ import pandas as pd
 from io import StringIO
 from config import *
 
-# Import modules
+# Import modules - with fallback for Streamlit Cloud
 try:
     from semantic_cache import SemanticCache
-    from langgraph_router import Router
+    try:
+        from langgraph_router import Router
+    except ImportError:
+        # Fallback to simple router for Streamlit Cloud
+        from simple_router import SimpleRouter as Router
 except ImportError as e:
     st.error(f"Import error: {e}")
     st.stop()
