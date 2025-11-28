@@ -156,6 +156,7 @@ class FallbackChatGradientAI:
                 model_identifier = model_name
             
             # Check if user has custom API key for this model
+            print('model_identifier', model_identifier)
             api_key = self.user_api_keys.get(model_identifier, default_api_key)
             print('api_key', api_key)
             
@@ -177,7 +178,7 @@ class FallbackChatGradientAI:
                 "messages": [{"role": "user", "content": prompt}],
             }
             
-            for attempt in range(max_retries):
+            for attempt in range(2):
                 try:
                     print(f"   ⏳ Attempt {attempt + 1}/{max_retries}...", end=" ")
                     start_time = time.time()
