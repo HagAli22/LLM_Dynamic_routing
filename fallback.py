@@ -7,8 +7,18 @@ try:
     from dotenv import load_dotenv
     load_dotenv()
 except ImportError:
-    # Running on Streamlit Cloud - uses st.secrets instead
     pass
+
+# Try to load from Streamlit secrets
+def get_secret(key, default=None):
+    """Get secret from Streamlit or environment"""
+    try:
+        import streamlit as st
+        if hasattr(st, 'secrets') and key in st.secrets:
+            return st.secrets[key]
+    except:
+        pass
+    return os.getenv(key, default)
 
 # Map models to environment variable names
 MODEL_KEY_MAP = {
@@ -131,8 +141,8 @@ class FallbackChatGradientAI:
         """
         last_exception = None
         
-        # Default system API key
-        default_api_key = os.getenv("OPENROUTER_API_KEY") or os.getenv("OPENAI_API_KEY")
+        # Default system API key - check Streamlit secrets first
+        default_api_key = get_secret("OPENROUTER_API_KEY") or get_secret("OPENAI_API_KEY")
 
         print(f"\n🔄 Starting fallback chain with {len(self.models)} models...")
         
