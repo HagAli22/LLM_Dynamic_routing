@@ -6,18 +6,15 @@ import streamlit as st
 import time
 import pandas as pd
 from io import StringIO
-from config import *
 
 # Import modules
 try:
     from semantic_cache import SemanticCache
     from simple_router import SimpleRouter as Router
+    from config import MODELS_CONFIG, Classifier, LLMClient
 except ImportError as e:
     st.error(f"Import error: {e}")
     st.stop()
-
-# Model configuration (tiers)
-MODELS_CONFIG =MODELS_CONFIG
 
 class SimpleCache:
     """Basic cache fallback"""
