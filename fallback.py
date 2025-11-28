@@ -1,10 +1,14 @@
 import os
 import time
 import requests
-from dotenv import load_dotenv
 
-# Load env vars
-load_dotenv()
+# Load env vars - graceful fallback for Streamlit Cloud
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    # Running on Streamlit Cloud - uses st.secrets instead
+    pass
 
 # Map models to environment variable names
 MODEL_KEY_MAP = {
