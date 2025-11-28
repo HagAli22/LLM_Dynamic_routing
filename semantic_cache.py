@@ -1,9 +1,16 @@
 import time
 import json
 import os
-import numpy as np
-from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
+
+# Try to import ML libraries - graceful fallback for Streamlit Cloud
+try:
+    import numpy as np
+    from sentence_transformers import SentenceTransformer
+    from sklearn.metrics.pairwise import cosine_similarity
+    ML_AVAILABLE = True
+except ImportError:
+    ML_AVAILABLE = False
+    np = None
 
 
 class SemanticCache:
@@ -16,8 +23,16 @@ class SemanticCache:
         self.cache_file = cache_file
         self.threshold = threshold
         self.default_ttl = default_ttl
-        self.model = SentenceTransformer("all-MiniLM-L6-v2")
-        self.cache = self._load_cache()
+        self.use_semantic = ML_AVAILABLE
+        
+        if self.use_semantic:
+            self.model = SentenceTransformer("all-MiniLM-L6-v2")
+            self.cache = self._load_cache()
+        else:
+            # Fallback to simple dict cache
+            self.model = None
+            self.cache = {}
+            self._simple_cache = {}
 
     def _load_cache(self):
         if os.path.exists(self.cache_file):
@@ -56,6 +71,10 @@ class SemanticCache:
 
     def get(self, query: str, threshold: float = None):
         """Retrieve response from cache if query is semantically similar."""
+        if not self.use_semantic:
+            # Simple exact match fallback
+            return self._simple_cache.get(query)
+        
         self._cleanup()
 
         if not self.cache:
@@ -91,6 +110,11 @@ class SemanticCache:
         else:
             response_text = str(response)
         
+        if not self.use_semantic:
+            # Simple cache fallback
+            self._simple_cache[query] = response_text
+            return
+        
         query_emb = self.model.encode([query])[0]
         ttl = ttl if ttl is not None else self.default_ttl
         self.cache.append({
@@ -103,10 +127,15 @@ class SemanticCache:
         
     def clear(self):
         """Clear all cache entries."""
+        if not self.use_semantic:
+            self._simple_cache = {}
+            return
         self.cache = []
         self._save_cache()
         
     def get_cache_size(self):
         """Get number of cached entries."""
+        if not self.use_semantic:
+            return len(self._simple_cache)
         self._cleanup()
         return len(self.cache)
